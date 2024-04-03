@@ -21,8 +21,8 @@
 #pragma comment (lib, "OpenGL32.lib")
 
 // settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 1920;
+const unsigned int SCR_HEIGHT = 1080;
 
 enum ECameraMovementType
 {
@@ -633,17 +633,17 @@ void processInput(GLFWwindow* window)
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
 
-	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
-		pCamera->ProcessKeyboard(FORWARD, (float)deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-		pCamera->ProcessKeyboard(BACKWARD, (float)deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-		pCamera->ProcessKeyboard(LEFT, (float)deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-		pCamera->ProcessKeyboard(RIGHT, (float)deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-		pCamera->ProcessKeyboard(UP, (float)deltaTime);
+		pCamera->ProcessKeyboard(FORWARD, (float)deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		pCamera->ProcessKeyboard(BACKWARD, (float)deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+		pCamera->ProcessKeyboard(LEFT, (float)deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		pCamera->ProcessKeyboard(RIGHT, (float)deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+		pCamera->ProcessKeyboard(UP, (float)deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
 		pCamera->ProcessKeyboard(DOWN, (float)deltaTime);
 
 	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
