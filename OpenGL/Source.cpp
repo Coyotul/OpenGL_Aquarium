@@ -639,7 +639,7 @@ void processInput(GLFWwindow* window)
 		pCamera->ProcessKeyboard(BACKWARD, (float)deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
 		pCamera->ProcessKeyboard(LEFT, (float)deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS || glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
 		pCamera->ProcessKeyboard(RIGHT, (float)deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
 		pCamera->ProcessKeyboard(UP, (float)deltaTime);
