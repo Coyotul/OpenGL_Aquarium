@@ -1,4 +1,4 @@
-
+ï»¿
 #include <stdlib.h> // necesare pentru citirea shader-elor
 #include <stdio.h>
 #include <math.h>
@@ -178,7 +178,7 @@ private:
 		//std::cout << "yaw = " << yaw << std::endl;
 		//std::cout << "pitch = " << pitch << std::endl;
 
-		// Avem grijã sã nu ne dãm peste cap
+		// Avem grijÃ£ sÃ£ nu ne dÃ£m peste cap
 		if (constrainPitch) {
 			if (pitch > 89.0f)
 				pitch = 89.0f;
@@ -186,7 +186,7 @@ private:
 				pitch = -89.0f;
 		}
 
-		// Se modificã vectorii camerei pe baza unghiurilor Euler
+		// Se modificÃ£ vectorii camerei pe baza unghiurilor Euler
 		UpdateCameraVectors();
 	}
 
@@ -269,55 +269,23 @@ const GLchar* FragmentShader =
    "uniform sampler2D texture2;\n"\
    "void main()\n"\
    "{\n"\
-   "  FragColor = vec4(ourColor,1.0) * mix(texture(texture1, TexCoord), texture(texture2, TexCoord), mixValue);\n"\
+   "  FragColor = vec4(ourColor,1.0) * mix(texture(texture1, TexCoord), texture(texture1, TexCoord), mixValue);\n"\
    "}\n"
 };
 
 
 void CreateVBO()
 {
-	// patrate
-	/*float vertices[] = {
-	 0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,
-	 0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,
-	 -0.5f, -0.5f, 0.0f,  0.0f, 0.0f, 1.0f,   0.0f, 0.0f,
-	 -0.5f,  0.5f, 0.0f,  1.0f, 1.0f, 0.0f,   0.0f, 1.0f
-	};
-	unsigned int indices[] = {
-	 0, 1, 3,
-	 1, 2, 3
-	};*/
-
-	//piramide
-   /*
-   float vertices[] = {
-
-	   -0.5f, 0.0f, -0.5f,         1.0f, 0.0f, 0.0f,        0.0f, 1.0f,
-		0.5f, 0.0f, -0.5f,         0.0f, 1.0f, 0.0f,        1.0f, 1.0f,
-		0.5f, 0.0f,  0.5f,         0.0f, 0.0f, 1.0f,        1.0f, 0.0f,
-	   -0.5f, 0.0f,  0.5f,         1.0f, 1.0f, 0.0f,        0.0f, 0.0f,
-		0.0f, 1.0f,  0.0f,         1.0f, 1.0f, 1.0f,        0.5f, 0.5f
-   };
-   unsigned int indices[] = {
-	   0, 1, 2,
-	   0, 2, 3,
-	   0, 1, 4,
-	   1, 2, 4,
-	   2, 3, 4,
-	   3, 0, 4
-   };
-   */
-
-   // cuburi 
+	//aquariu1
 	float vertices[] = {
-		0.0f, 0.0f, 1.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,
-		1.0f, 0.0f, 1.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,
-		1.0f, 1.0f, 1.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,
-		0.0f, 1.0f, 1.0f,   1.0f, 0.0f, 0.0f,   0.0f, 1.0f,
-		0.0f, 0.0f, 0.0f,   0.0f, 1.0f, 0.0f,   0.0f, 0.0f,
-		1.0f, 0.0f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 1.0f,
-		1.0f, 1.0f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,
-		0.0f, 1.0f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f
+		0.0f, 0.0f, 3.0f,   1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
+		10.0f, 0.0f, 3.0f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f,
+		10.0f, 1.0f, 3.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
+		0.0f, 1.0f, 3.0f,   1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
+		0.0f, 0.0f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
+		10.0f, 0.0f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
+		10.0f, 1.0f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
+		0.0f, 1.0f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f
 	};
 	unsigned int indices[] = {
 	   0,1,2,
@@ -330,9 +298,8 @@ void CreateVBO()
 	   4,3,7,
 	   0,5,1,
 	   0,4,5,
-	   3,2,6,
-	   3,6,7
 	};
+
 
 
 
@@ -439,7 +406,7 @@ void CreateTextures(const std::string& strExePath)
 	// load image, create texture and generate mipmaps
 	int width, height, nrChannels;
 	stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.
-	unsigned char* data = stbi_load((strExePath + "\\stones.jpg").c_str(), &width, &height, &nrChannels, 0);
+	unsigned char* data = stbi_load((strExePath + "\\glass.jpg").c_str(), &width, &height, &nrChannels, 0);
 	if (data) {
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
 		glGenerateMipmap(GL_TEXTURE_2D);
@@ -459,7 +426,7 @@ void CreateTextures(const std::string& strExePath)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	// load image, create texture and generate mipmaps
-	data = stbi_load((strExePath + "\\Bricks.jpg").c_str(), &width, &height, &nrChannels, 0);
+	data = stbi_load((strExePath + "\\glass.jpg").c_str(), &width, &height, &nrChannels, 0);
 	if (data) {
 		// note that the awesomeface.png has transparency and thus an alpha channel, so make sure to tell OpenGL the data type is of GL_RGBA
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
@@ -472,7 +439,7 @@ void CreateTextures(const std::string& strExePath)
 }
 void Initialize(const std::string& strExePath)
 {
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // culoarea de fond a ecranului
+	glClearColor(0.0f, 0.5f, 0.2f, 1.0f); // culoarea de fond a ecranului
 	//glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_COLOR_MATERIAL);
@@ -501,16 +468,9 @@ void RenderCube()
 
 void RenderFunction()
 {
-	glm::vec3 cubePositions[] = {
+	glEnable(GL_BLEND);
+	glm::vec3 aquariumSkeleton[] = {
 	   glm::vec3(0.0f,  0.0f,   0.0f),
-	   glm::vec3(-5.0f,  5.0f,  5.0f),
-	   glm::vec3(-5.0f, -5.0f,  5.0f),
-	   glm::vec3(5.0f, -5.0f,  5.0f),
-	   glm::vec3(5.0f,  5.0f,  5.0f),
-	   glm::vec3(-5.0f,  5.0f, -5.0f),
-	   glm::vec3(-5.0f, -5.0f, -5.0f),
-	   glm::vec3(5.0f, -5.0f, -5.0f),
-	   glm::vec3(5.0f,  5.0f, -5.0f),
 	};
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -529,18 +489,12 @@ void RenderFunction()
 	glm::mat4 view = pCamera->GetViewMatrix();
 	glUniformMatrix4fv(ViewMatrixLocation, 1, GL_FALSE, glm::value_ptr(view));
 
-	//glm::mat4 view;
-	//float radius = 10.0f;
-	//float camX = sin(glfwGetTime()) * radius;
-	//float camZ = cos(glfwGetTime()) * radius;
-	//view = glm::lookAt(glm::vec3(camX, 0.0f, camZ), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	//glUniformMatrix4fv(ViewMatrixLocation, 1, GL_FALSE, glm::value_ptr(view));
 
 	glBindVertexArray(VAO);
 
-	for (unsigned int i = 0; i < sizeof(cubePositions) / sizeof(cubePositions[0]); i++) {
+	for (unsigned int i = 0; i < sizeof(aquariumSkeleton) / sizeof(aquariumSkeleton[0]); i++) {
 		// calculate the model matrix for each object and pass it to shader before drawing
-		glm::mat4 worldTransf = glm::translate(glm::mat4(1.0), cubePositions[i]);
+		glm::mat4 worldTransf = glm::translate(glm::mat4(1.0), aquariumSkeleton[i]);
 		glUniformMatrix4fv(WorldMatrixLocation, 1, GL_FALSE, glm::value_ptr(worldTransf));
 
 		RenderCube();
@@ -567,6 +521,7 @@ double lastFrame = 0.0f;
 
 int main(int argc, char** argv)
 {
+	glEnable(GL_BLEND);
 	std::string strFullExeFileName = argv[0];
 	std::string strExePath;
 	const size_t last_slash_idx = strFullExeFileName.rfind('\\');
@@ -675,14 +630,5 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yOffset)
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-	if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS && g_fixValue < 1.0f)
-	{
-		g_fixValue += 0.1;
-		glUniform1f(MixValueLocation, g_fixValue);
-	}
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS && g_fixValue > 0.0f)
-	{
-		g_fixValue -= 0.1;
-		glUniform1f(MixValueLocation, g_fixValue);
-	}
+
 }
