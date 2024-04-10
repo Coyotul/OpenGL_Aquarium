@@ -12,6 +12,7 @@
 #include <glfw3.h>
 
 #include <iostream>
+#include <vector>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
