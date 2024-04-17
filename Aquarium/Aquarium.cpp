@@ -229,7 +229,7 @@ protected:
 	float lastX = 0.f, lastY = 0.f;
 };
 
-GLuint VAO, VBO, EBO;
+GLuint VAO, VBO, EBO, SphereVAO, SphereVBO, SphereEBO;
 unsigned int VertexShaderId, FragmentShaderId, ProgramId;
 GLuint ProjMatrixLocation, ViewMatrixLocation, WorldMatrixLocation;
 unsigned int texture1Location, texture2Location, MixValueLocation;
@@ -274,6 +274,86 @@ const GLchar* FragmentShader =
    "}\n"
 };
 
+unsigned int numSphereIndices;
+
+void CreateSphere()
+{
+	// Define sphere vertices and indices
+	std::vector<float> vertices;
+	std::vector<unsigned int> indices;
+
+	const int sectors = 36; // number of sectors (longitude)
+	const int stacks = 18;  // number of stacks (latitude)
+
+	// Generate sphere vertices
+	for (int i = 0; i <= stacks; ++i) {
+		float phi = glm::pi<float>() * i / stacks;
+		float sinPhi = sin(phi);
+		float cosPhi = cos(phi);
+
+		for (int j = 0; j <= sectors; ++j) {
+			float theta = 2 * glm::pi<float>() * j / sectors;
+			float sinTheta = sin(theta);
+			float cosTheta = cos(theta);
+
+			float x = cosTheta * sinPhi;
+			float y = cosPhi;
+			float z = sinTheta * sinPhi;
+
+			// Position
+			vertices.push_back(x);
+			vertices.push_back(y);
+			vertices.push_back(z);
+
+			// Color (if needed)
+			vertices.push_back(1.0f); // R
+			vertices.push_back(1.0f); // G
+			vertices.push_back(1.0f); // B
+
+			// Texture coordinates (if needed)
+			vertices.push_back(0.0f); // U
+			vertices.push_back(0.0f); // V
+		}
+	}
+
+	// Generate sphere indices
+	for (int i = 0; i < stacks; ++i) {
+		for (int j = 0; j < sectors; ++j) {
+			int first = (i * (sectors + 1)) + j;
+			int second = first + sectors + 1;
+
+			indices.push_back(first);
+			indices.push_back(second);
+			indices.push_back(first + 1);
+
+			indices.push_back(second);
+			indices.push_back(second + 1);
+			indices.push_back(first + 1);
+		}
+	}
+
+	numSphereIndices = indices.size();
+
+	// Create VAO, VBO, EBO for the sphere
+	glGenVertexArrays(1, &SphereVAO);
+	glGenBuffers(1, &SphereVBO);
+	glGenBuffers(1, &SphereEBO);
+
+	glBindVertexArray(SphereVAO);
+
+	glBindBuffer(GL_ARRAY_BUFFER, SphereVBO);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, SphereEBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
+
+	// Set vertex attributes
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+	// You can set other attributes (e.g., color, texture coordinates) here
+
+	glBindVertexArray(0); // Unbind VAO
+}
 
 void CreateVBO()
 {
@@ -300,9 +380,6 @@ void CreateVBO()
 	   0,5,1,
 	   0,4,5,
 	};
-
-
-
 
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
@@ -453,8 +530,16 @@ void Initialize(const std::string& strExePath)
 	CreateShaders();
 	CreateTextures(strExePath);
 
+	CreateSphere();
 	// Create camera
 	pCamera = new Camera(SCR_WIDTH, SCR_HEIGHT, glm::vec3(0.5, 0.5, 10));
+}
+
+void RenderSphere()
+{
+	glBindVertexArray(SphereVAO);
+	glDrawElements(GL_TRIANGLES, numSphereIndices, GL_UNSIGNED_INT, 0);
+	glBindVertexArray(0);
 }
 
 void RenderCube()
@@ -490,7 +575,6 @@ void RenderFunction()
 	glm::mat4 view = pCamera->GetViewMatrix();
 	glUniformMatrix4fv(ViewMatrixLocation, 1, GL_FALSE, glm::value_ptr(view));
 
-
 	glBindVertexArray(VAO);
 
 	for (unsigned int i = 0; i < sizeof(aquariumSkeleton) / sizeof(aquariumSkeleton[0]); i++) {
@@ -498,14 +582,31 @@ void RenderFunction()
 		glm::mat4 worldTransf = glm::translate(glm::mat4(1.0), aquariumSkeleton[i]);
 		glUniformMatrix4fv(WorldMatrixLocation, 1, GL_FALSE, glm::value_ptr(worldTransf));
 
-		RenderCube();
+		RenderCube(); // Render the aquarium cube
 	}
+
+	// Render sphere inside the aquarium
+	glm::mat4 aquariumTransform = glm::translate(glm::mat4(1.0f), glm::vec3(5.0f, 0.5f, 1.5f)); // Example position inside the aquarium
+	aquariumTransform = glm::scale(aquariumTransform, glm::vec3(0.5f)); // Example scaling to fit inside the cube
+
+	glm::mat4 sphereTransform = aquariumTransform;
+	glUniformMatrix4fv(WorldMatrixLocation, 1, GL_FALSE, glm::value_ptr(sphereTransform));
+	RenderSphere(); // Render sphere inside the aquarium
+
+	// Unbind VAO and program
+	glBindVertexArray(0);
+	glUseProgram(0);
 }
 
 void Cleanup()
 {
 	DestroyShaders();
 	DestroyVBO();
+
+	// Delete sphere VAO, VBO, EBO
+	glDeleteVertexArrays(1, &SphereVAO);
+	glDeleteBuffers(1, &SphereVBO);
+	glDeleteBuffers(1, &SphereEBO);
 
 	delete pCamera;
 }
