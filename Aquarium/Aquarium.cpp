@@ -358,16 +358,30 @@ void CreateSphere()
 void CreateVBO()
 {
 	//aquariu1
+	//float vertices[] = {
+	//	0.0f, 0.0f, 3.0f,   1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
+	//	10.0f, 0.0f, 3.0f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f,
+	//	10.0f, 1.0f, 3.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
+	//	0.0f, 1.0f, 3.0f,   1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
+	//	0.0f, 0.0f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
+	//	10.0f, 0.0f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
+	//	10.0f, 1.0f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
+	//	0.0f, 1.0f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f
+	//};
+
+	float scaleFactor = 1.5f;
+
 	float vertices[] = {
-		0.0f, 0.0f, 3.0f,   1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
-		10.0f, 0.0f, 3.0f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f,
-		10.0f, 1.0f, 3.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
-		0.0f, 1.0f, 3.0f,   1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
+		0.0f, 0.0f, 3.0f * scaleFactor,   1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
+		10.0f * scaleFactor, 0.0f, 3.0f * scaleFactor,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f,
+		10.0f * scaleFactor, 1.0f * scaleFactor, 3.0f * scaleFactor,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
+		0.0f, 1.0f * scaleFactor, 3.0f * scaleFactor,   1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
 		0.0f, 0.0f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
-		10.0f, 0.0f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
-		10.0f, 1.0f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
-		0.0f, 1.0f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f
+		10.0f * scaleFactor, 0.0f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 1.0f,
+		10.0f * scaleFactor, 1.0f * scaleFactor, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 1.0f,
+		0.0f, 1.0f * scaleFactor, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f
 	};
+
 	unsigned int indices[] = {
 	   0,1,2,
 	   0,2,3,
