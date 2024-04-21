@@ -19,38 +19,42 @@ unsigned int Factory::allocate_id() {
 
 void Factory::make_object() {
 
-	unsigned int id = allocate_id();
+    unsigned int id = allocate_id();
 
-	//Transform
-	TransformComponent transform;
-	constexpr float radius = 50.0f;
-	float x = radius * (2.0f * random_float() - 1.0f);
-	float y = radius * (2.0f * random_float() - 1.0f);
-	float z = radius * (2.0f * random_float() - 1.0f);
-	transform.position = glm::vec3(x, y, z);
+    // Transform
+    TransformComponent transform;
 
-	x = 360.0f * random_float();
-	y = 360.0f * random_float();
-	z = 360.0f * random_float();
-	transform.eulers = glm::vec3(x, y, z);
+    // Position the object in front of you and a bit higher
+    transform.position = glm::vec3(10.0f, 1.5f, -1.5f); // 10 units ahead and 1.5 units above
 
-	x = 1.8f * random_float() + 0.2f;
-	transform.scale = x;
+    // Random rotation
+    transform.eulers = glm::vec3(
+        360.0f * random_float(), // Random x-axis rotation
+        360.0f * random_float(), // Random y-axis rotation
+        360.0f * random_float()  // Random z-axis rotation
+    );
 
-	componentRegistry.transforms.insert(id, transform);
+    // Default scale
+    transform.scale = 1.0f;
 
-	//Velocity
-	VelocityComponent velocity;
-	constexpr float maxSpeed = 10.0f;
-	x = maxSpeed * (2.0f * random_float() - 1.0f);
-	y = maxSpeed * (2.0f * random_float() - 1.0f);
-	z = maxSpeed * (2.0f * random_float() - 1.0f);
-	velocity.angular = glm::vec3(x, y, z);
+    componentRegistry.transforms.insert(id, transform);
 
-	componentRegistry.velocities.insert(id, velocity);
+    // Velocity
+    VelocityComponent velocity;
 
-	//Model
-	RenderComponent model;
-	model.objectType = static_cast<ObjectType>(random_int_in_range(objectTypeCount));
-	componentRegistry.renderables.insert(id, model);
+    // Random angular velocity for rotation
+    constexpr float maxAngularSpeed = 10.0f;
+    velocity.angular = glm::vec3(
+        maxAngularSpeed * (2.0f * random_float() - 1.0f), // Random x-axis rotation
+        maxAngularSpeed * (2.0f * random_float() - 1.0f), // Random y-axis rotation
+        maxAngularSpeed * (2.0f * random_float() - 1.0f)  // Random z-axis rotation
+    );
+
+    componentRegistry.velocities.insert(id, velocity);
+
+    // Model
+    RenderComponent model;
+    model.objectType = static_cast<ObjectType>(random_int_in_range(objectTypeCount)); // Random model type
+
+    componentRegistry.renderables.insert(id, model);
 }

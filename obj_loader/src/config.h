@@ -34,5 +34,5 @@ struct Mesh {
 constexpr float windowWidth = 1920.0f;
 constexpr float windowHeight = 1080.0f;
 
-constexpr uint32_t maxObjectCount = 100;
+constexpr uint32_t maxObjectCount = 1;
 constexpr uint32_t objectTypeCount = 1;
