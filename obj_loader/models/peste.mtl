@@ -10,7 +10,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd peste.jpg
+map_Kd img/peste/peste.jpg
 
 newmtl Material.002
 Ns 483.560114
@@ -21,7 +21,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd peste.jpg
+map_Kd img/peste/peste.jpg
 
 newmtl Material.003
 Ns 569.473121
@@ -32,4 +32,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 3
-map_Kd peste.jpg
+map_Kd img/peste/peste.jpg
