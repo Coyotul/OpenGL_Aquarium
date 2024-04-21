@@ -4,7 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-
+ 
 App::App() {
 
 	set_up_glfw();
