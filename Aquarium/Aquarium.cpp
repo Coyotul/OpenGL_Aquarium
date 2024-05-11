@@ -19,11 +19,8 @@
 #define TINYOBJLOADER_IMPLEMENTATION
 #include "tiny_obj_loader.h"
 
-
 #include "Plane.h"
-#include "Cube.h"
 #include "AquariumPane.h"
-#include "Bubble.h"
 
 #pragma comment (lib, "glfw3dll.lib")
 #pragma comment (lib, "glew32.lib")
@@ -34,6 +31,9 @@
 const unsigned int SCR_WIDTH = 1920;
 const unsigned int SCR_HEIGHT = 1080;
 AquariumPane* overlay;
+AquariumPane* front, * back, * right, * left;
+std::string strExePath;
+
 enum ECameraMovementType
 {
 	UNKNOWN,
@@ -284,9 +284,86 @@ const GLchar* FragmentShader =
 };
 
 unsigned int numSphereIndices;
-
-void CreateSphere()
+unsigned int loadCubemap(std::vector<std::string> faces)
 {
+	unsigned int textureID;
+	glGenTextures(1, &textureID);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
+
+	int width, height, nrChannels;
+	for (unsigned int i = 0; i < faces.size(); i++)
+	{
+		unsigned char* data = stbi_load(faces[i].c_str(), &width, &height, &nrChannels, 0);
+		if (data)
+		{
+			glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+			stbi_image_free(data);
+		}
+		else
+		{
+			std::cout << "Cubemap texture failed to load at path: " << faces[i] << std::endl;
+			stbi_image_free(data);
+		}
+	}
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+	return textureID;
+}
+unsigned int CreateTexture(const std::string& strTexturePath)
+{
+	unsigned int textureId = -1;
+
+	//load image, create texture and generate mipmaps
+	int width, height, nrChannels;
+	stbi_set_flip_vertically_on_load(true); //tell stb_image.h to flip loaded texture's on the y-axis.
+	unsigned char* data = stbi_load(strTexturePath.c_str(), &width, &height, &nrChannels, 0);
+	if (data) {
+		GLenum format;
+		if (nrChannels == 1)
+			format = GL_RED;
+		else if (nrChannels == 3)
+			format = GL_RGB;
+		else if (nrChannels == 4)
+			format = GL_RGBA;
+
+		glGenTextures(1, &textureId);
+		glBindTexture(GL_TEXTURE_2D, textureId);
+		glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
+
+		//set the texture wrapping parameters
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		//set texture filtering parameters
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	}
+	else {
+		std::cout << "Failed to load texture: " << strTexturePath << std::endl;
+	}
+	stbi_image_free(data);
+
+	return textureId;
+}
+
+void CreateObjects()
+{
+	unsigned int cubeMapTexture = loadCubemap({
+		strExePath + "\\Pictures\\skybox\\right.jpg",
+		strExePath + "\\Pictures\\skybox\\left.jpg",
+		strExePath + "\\Pictures\\skybox\\top.jpg",
+		strExePath + "\\Pictures\\skybox\\bottom.jpg",
+		strExePath + "\\Pictures\\skybox\\front.jpg",
+		strExePath + "\\Pictures\\skybox\\back.jpg"
+		});
+
+	unsigned int insideWaterTexture = CreateTexture(strExePath + "\\Pictures\\insideWater.png");
+
+
 	// Define sphere vertices and indices
 	std::vector<float> vertices;
 	std::vector<unsigned int> indices;
@@ -362,7 +439,13 @@ void CreateSphere()
 	// You can set other attributes (e.g., color, texture coordinates) here
 
 	glBindVertexArray(0); // Unbind VAO
+
+	overlay = new AquariumPane(25, 25, { 0,0,0 }, TS_NO_SCALE, OR_XY);
+	overlay->setDiffuseTextureId(insideWaterTexture);
 }
+
+
+
 
 void CreateVBO()
 {
@@ -553,7 +636,7 @@ void Initialize(const std::string& strExePath)
 	CreateShaders();
 	CreateTextures(strExePath);
 
-	CreateSphere();
+	CreateObjects();
 	// Create camera
 	pCamera = new Camera(SCR_WIDTH, SCR_HEIGHT, glm::vec3(0.5, 0.5, 10));
 }
@@ -648,10 +731,11 @@ int main(int argc, char** argv)
 {
 	glEnable(GL_BLEND);
 	std::string strFullExeFileName = argv[0];
-	std::string strExePath;
-	const size_t last_slash_idx = strFullExeFileName.rfind('\\');
+	size_t last_slash_idx = strFullExeFileName.rfind('\\');
 	if (std::string::npos != last_slash_idx) {
-		strExePath = strFullExeFileName.substr(0, last_slash_idx);
+		std::string debugPath = strFullExeFileName.substr(0, last_slash_idx);
+		last_slash_idx = debugPath.rfind('\\');
+		strExePath = strFullExeFileName.substr(0, last_slash_idx).append("\\G3D_proiect");
 	}
 
 	// glfw: initialize and configure
