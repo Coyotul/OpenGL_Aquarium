@@ -383,8 +383,8 @@ int main()
 	std::string objFileName = (currentPath + "\\Models\\CylinderProject.obj");
 	Model objModel(objFileName, false);
 
-	std::string piratObjFileName = (currentPath + "\\Models\\Pirat\\Pirat.obj");
-	Model piratObjModel(piratObjFileName, false);
+	std::string fishObj = (currentPath + "\\Models\\Fish\\fish.obj");
+	Model fishObjModel(fishObj, false);
 
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
@@ -418,7 +418,7 @@ int main()
 
 		glm::mat4 piratModel = glm::scale(glm::mat4(1.0), glm::vec3(1.f));
 		lightingShader.setMat4("model", piratModel);
-		piratObjModel.Draw(lightingShader);
+		fishObjModel.Draw(lightingShader);
 
 		// also draw the lamp object
 		lampShader.use();
