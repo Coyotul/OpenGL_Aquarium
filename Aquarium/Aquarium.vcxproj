@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>..\_external\stb;..\_external\glm;..\_external\glfw-3.4.bin.WIN64\include\GLFW;..\_external\glew-2.2.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\_external\glfw-3.4.bin.WIN64\lib-vc2022;..\_external\glew-2.2.0\lib\Release\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\_external\glew-2.2.0\;..\_external\glfw-3.4.bin.WIN64\lib-vc2022;..\_external\glew-2.2.0\lib\Release\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>..\_external\stb;..\_external\glm;..\_external\glfw-3.4.bin.WIN64\include\GLFW;..\_external\glew-2.2.0\include;$(IncludePath)</IncludePath>

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\Aquarium\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C4FAF081-03CE-4020-94DB-018501BA8CA8}|Aquarium.vcxproj|C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\Aquarium\\Aquarium.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C4FAF081-03CE-4020-94DB-018501BA8CA8}|Aquarium.vcxproj|solutionrelative:Aquarium.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Aquarium.cpp",
+              "DocumentMoniker": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\Aquarium\\Aquarium.cpp",
+              "RelativeDocumentMoniker": "Aquarium.cpp",
+              "ToolTip": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\Aquarium\\Aquarium.cpp",
+              "RelativeToolTip": "Aquarium.cpp",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-11T11:52:23.429Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
