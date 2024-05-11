@@ -27,8 +27,8 @@
 #pragma comment (lib, "OpenGL32.lib")
 
 // settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 1800;
+const unsigned int SCR_HEIGHT = 800;
 
 enum ECameraMovementType
 {
@@ -383,7 +383,7 @@ int main()
 	std::string objFileName = (currentPath + "\\Models\\CylinderProject.obj");
 	Model objModel(objFileName, false);
 
-	std::string piratObjFileName = (currentPath + "\\Models\\Pirat\\peste.obj");
+	std::string piratObjFileName = (currentPath + "\\Models\\Pirat\\Pirat.obj");
 	Model piratObjModel(piratObjFileName, false);
 
 	// render loop
