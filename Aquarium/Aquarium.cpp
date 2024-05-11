@@ -16,15 +16,24 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
+#define TINYOBJLOADER_IMPLEMENTATION
+#include "tiny_obj_loader.h"
+
+
+#include "Plane.h"
+#include "Cube.h"
+#include "AquariumPane.h"
+#include "Bubble.h"
 
 #pragma comment (lib, "glfw3dll.lib")
 #pragma comment (lib, "glew32.lib")
 #pragma comment (lib, "OpenGL32.lib")
 
+
 // settings
 const unsigned int SCR_WIDTH = 1920;
 const unsigned int SCR_HEIGHT = 1080;
-
+AquariumPane* overlay;
 enum ECameraMovementType
 {
 	UNKNOWN,
