@@ -26,6 +26,8 @@
 #pragma comment (lib, "glew32.lib")
 #pragma comment (lib, "OpenGL32.lib")
 
+#include <stb_image.h>
+
 // settings
 const unsigned int SCR_WIDTH = 1800;
 const unsigned int SCR_HEIGHT = 800;
@@ -214,7 +216,7 @@ private:
 	}
 
 protected:
-	const float cameraSpeedFactor = 2.5f;
+	const float cameraSpeedFactor = 5.5f;
 	const float mouseSensitivity = 0.1f;
 
 	// Perspective properties
@@ -458,15 +460,8 @@ int main()
 
 
 		// bubble 
-		float bubbleVerticalSpeed = 10.1f; // Adjust this value to control the speed of vertical movement
-		float bubbleVerticalOffset = 0.0f; // Initialize the vertical offset of the bubble
-
-		// In the render loop
-		bubbleVerticalOffset += bubbleVerticalSpeed * deltaTime; // Update the vertical offset based on time and speed
-
-		// Adjust the position of the bubble in the model matrix
-		glm::mat4 bubbleModelMatrix = glm::scale(glm::mat4(1.0), glm::vec3(5.0f)); // Scale the bubble
-		bubbleModelMatrix = glm::translate(bubbleModelMatrix, glm::vec3(0.0f, 2.0f + bubbleVerticalOffset, 0.0f)); // Move the bubble up and down
+		glm::mat4 bubbleModelMatrix = glm::scale(glm::mat4(1.0), glm::vec3(0.2f)); // Scale the bubble
+		bubbleModelMatrix = glm::translate(bubbleModelMatrix, glm::vec3(1.0f, 0.0f, 3.0f)); // Position the bubble
 		lightingShader.setMat4("model", bubbleModelMatrix);
 		bubbleObjModel.Draw(lightingShader);
 
