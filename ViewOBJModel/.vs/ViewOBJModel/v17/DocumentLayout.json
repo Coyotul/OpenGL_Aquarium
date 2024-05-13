@@ -1,29 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\",
+  "WorkspaceRootPath": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\ViewOBJModel\\ViewOBJModel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\ViewOBJModel\\ViewOBJModel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\ViewOBJModel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\ViewOBJModel\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\ViewOBJModel\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\Lamp.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\Lamp.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Shaders\\Lamp.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\PhongLight.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\PhongLight.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Shaders\\PhongLight.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\PhongLight.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\PhongLight.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Shaders\\PhongLight.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\Lamp.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\Lamp.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Shaders\\Lamp.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
@@ -34,86 +34,77 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "PhongLight.vs",
-              "DocumentMoniker": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\PhongLight.vs",
+              "DocumentMoniker": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\PhongLight.vs",
               "RelativeDocumentMoniker": "Shaders\\PhongLight.vs",
-              "ToolTip": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\PhongLight.vs",
+              "ToolTip": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\PhongLight.vs",
               "RelativeToolTip": "Shaders\\PhongLight.vs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-13T12:48:27.857Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T12:48:27.857Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "PhongLight.fs",
-              "DocumentMoniker": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\PhongLight.fs",
+              "DocumentMoniker": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\PhongLight.fs",
               "RelativeDocumentMoniker": "Shaders\\PhongLight.fs",
-              "ToolTip": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\PhongLight.fs",
+              "ToolTip": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\PhongLight.fs",
               "RelativeToolTip": "Shaders\\PhongLight.fs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-13T12:48:27.757Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T12:48:27.757Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Lamp.vs",
-              "DocumentMoniker": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\Lamp.vs",
+              "DocumentMoniker": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\Lamp.vs",
               "RelativeDocumentMoniker": "Shaders\\Lamp.vs",
-              "ToolTip": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\Lamp.vs",
+              "ToolTip": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\Lamp.vs",
               "RelativeToolTip": "Shaders\\Lamp.vs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-13T12:48:27.661Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T12:48:27.661Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Lamp.fs",
-              "DocumentMoniker": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\Lamp.fs",
+              "DocumentMoniker": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\Lamp.fs",
               "RelativeDocumentMoniker": "Shaders\\Lamp.fs",
-              "ToolTip": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\Lamp.fs",
+              "ToolTip": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\Shaders\\Lamp.fs",
               "RelativeToolTip": "Shaders\\Lamp.fs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-13T12:48:26.578Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T12:48:26.578Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Mesh.cpp",
-              "DocumentMoniker": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\ViewOBJModel\\Mesh.cpp",
+              "DocumentMoniker": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\ViewOBJModel\\Mesh.cpp",
               "RelativeDocumentMoniker": "ViewOBJModel\\Mesh.cpp",
-              "ToolTip": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\ViewOBJModel\\Mesh.cpp",
+              "ToolTip": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\ViewOBJModel\\Mesh.cpp",
               "RelativeToolTip": "ViewOBJModel\\Mesh.cpp",
               "ViewState": "AQIAAC0AAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-11T15:38:04.037Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-11T15:38:04.037Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "ViewOBJModel.cpp",
-              "DocumentMoniker": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\ViewOBJModel\\ViewOBJModel.cpp",
+              "DocumentMoniker": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\ViewOBJModel\\ViewOBJModel.cpp",
               "RelativeDocumentMoniker": "ViewOBJModel\\ViewOBJModel.cpp",
-              "ToolTip": "C:\\Users\\George\\Documents\\Facultate\\S3D\\OpenGL_Aquarium\\ViewOBJModel\\ViewOBJModel\\ViewOBJModel.cpp",
+              "ToolTip": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\ViewOBJModel\\ViewOBJModel\\ViewOBJModel.cpp",
               "RelativeToolTip": "ViewOBJModel\\ViewOBJModel.cpp",
-              "ViewState": "AQIAAK0BAAAAAAAAAAAMwL8BAAAAAAAA",
+              "ViewState": "AQIAAL0BAAAAAAAAAAAAwNMBAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-23T04:54:09.442Z",
               "EditorCaption": ""

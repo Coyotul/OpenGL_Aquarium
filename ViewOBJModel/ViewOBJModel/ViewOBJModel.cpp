@@ -386,7 +386,10 @@ int main()
 	std::string fishObj = (currentPath + "\\Models\\Fish\\fish.obj");
 	Model fishObjModel(fishObj, false);
 	std::string aquarium = (currentPath + "\\Models\\aquarium\\12987_Saltwater_Aquarium_v1_l1.obj");
-	Model aquariumModel (aquarium, false);
+	Model aquariumModel(aquarium, false);
+
+	std::string bubbleObj = (currentPath + "\\Models\\Bubble\\bubble.obj");
+	Model bubbleObjModel(bubbleObj, false);
 
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
@@ -452,6 +455,21 @@ int main()
 		// Desenăm acvariul folosind aceeași matrice de model ca peștele
 		lightingShader.setMat4("model", aquariumModelMatrix); // Folosim aceeași matrice de model pentru acvariu ca și pentru pește
 		aquariumModel.Draw(lightingShader);
+
+
+		// bubble 
+		float bubbleVerticalSpeed = 10.1f; // Adjust this value to control the speed of vertical movement
+		float bubbleVerticalOffset = 0.0f; // Initialize the vertical offset of the bubble
+
+		// In the render loop
+		bubbleVerticalOffset += bubbleVerticalSpeed * deltaTime; // Update the vertical offset based on time and speed
+
+		// Adjust the position of the bubble in the model matrix
+		glm::mat4 bubbleModelMatrix = glm::scale(glm::mat4(1.0), glm::vec3(5.0f)); // Scale the bubble
+		bubbleModelMatrix = glm::translate(bubbleModelMatrix, glm::vec3(0.0f, 2.0f + bubbleVerticalOffset, 0.0f)); // Move the bubble up and down
+		lightingShader.setMat4("model", bubbleModelMatrix);
+		bubbleObjModel.Draw(lightingShader);
+
 		// also draw the lamp object
 		lampShader.use();
 		lampShader.setMat4("projection", pCamera->GetProjectionMatrix());
