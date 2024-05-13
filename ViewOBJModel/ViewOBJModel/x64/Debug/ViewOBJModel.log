@@ -14,14 +14,15 @@ C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJMode
 C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\Texture.h(7,23): warning C4129: 'p': unrecognized character escape sequence
   (compiling source file 'ViewOBJModel.cpp')
   
-C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(402,20): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(402,20): warning C4244:         with
-C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(402,20): warning C4244:         [
-C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(402,20): warning C4244:             T=float
-C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(402,20): warning C4244:         ]
-C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(403,20): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(403,20): warning C4244:         with
-C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(403,20): warning C4244:         [
-C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(403,20): warning C4244:             T=float
-C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(403,20): warning C4244:         ]
+C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(404,20): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(404,20): warning C4244:         with
+C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(404,20): warning C4244:         [
+C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(404,20): warning C4244:             T=float
+C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(404,20): warning C4244:         ]
+C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(405,20): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(405,20): warning C4244:         with
+C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(405,20): warning C4244:         [
+C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(405,20): warning C4244:             T=float
+C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(405,20): warning C4244:         ]
+C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(426,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   ViewOBJModel.vcxproj -> C:\Users\George\Documents\Facultate\S3D\OpenGL_Aquarium\ViewOBJModel\x64\Debug\ViewOBJModel.exe
