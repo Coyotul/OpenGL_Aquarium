@@ -278,7 +278,7 @@ int main()
 		glfwTerminate();
 		return -1;
 	}
-
+	glEnable(GL_TEXTURE_2D);
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	glfwSetCursorPosCallback(window, mouse_callback);
@@ -412,12 +412,13 @@ int main()
 		lightingShader.setMat4("view", pCamera->GetViewMatrix());
 
 		// render the model
-		//glm::mat4 model = glm::scale(glm::mat4(1.0), glm::vec3(0.001f));
-		//lightingShader.setMat4("model", model);
-		//objModel.Draw(lightingShader);
+		glm::mat4 model = glm::scale(glm::mat4(1.0), glm::vec3(0.001f));
+		lightingShader.setMat4("model", model);
+		objModel.Draw(lightingShader);
 
-		glm::mat4 piratModel = glm::scale(glm::mat4(1.0), glm::vec3(1.f));
-		lightingShader.setMat4("model", piratModel);
+		glm::mat4 fish = glm::scale(glm::mat4(1.0), glm::vec3(0.1f));
+		fish = glm::rotate(glm::mat4(1.0f), glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		lightingShader.setMat4("model", fish);
 		fishObjModel.Draw(lightingShader);
 
 		// also draw the lamp object
