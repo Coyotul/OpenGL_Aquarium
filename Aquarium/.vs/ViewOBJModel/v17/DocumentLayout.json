@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\ViewOBJModel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\Aquarium\\ViewOBJModel\\Shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\Shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\Aquarium\\Shaders\\PhongLight.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
       "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:Shaders\\PhongLight.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
     },
@@ -30,11 +34,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "Shader.cpp",
+              "DocumentMoniker": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\Aquarium\\ViewOBJModel\\Shader.cpp",
+              "RelativeDocumentMoniker": "ViewOBJModel\\Shader.cpp",
+              "ToolTip": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\Aquarium\\ViewOBJModel\\Shader.cpp",
+              "RelativeToolTip": "ViewOBJModel\\Shader.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-14T17:13:05.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "PhongLight.vs",
               "DocumentMoniker": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\Aquarium\\Shaders\\PhongLight.vs",
               "RelativeDocumentMoniker": "Shaders\\PhongLight.vs",
@@ -46,7 +63,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PhongLight.fs",
               "DocumentMoniker": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\Aquarium\\Shaders\\PhongLight.fs",
               "RelativeDocumentMoniker": "Shaders\\PhongLight.fs",
@@ -58,7 +75,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Lamp.vs",
               "DocumentMoniker": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\Aquarium\\Shaders\\Lamp.vs",
               "RelativeDocumentMoniker": "Shaders\\Lamp.vs",
@@ -70,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Lamp.fs",
               "DocumentMoniker": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\Aquarium\\Shaders\\Lamp.fs",
               "RelativeDocumentMoniker": "Shaders\\Lamp.fs",
@@ -88,7 +105,7 @@
               "RelativeDocumentMoniker": "ViewOBJModel\\ViewOBJModel.cpp",
               "ToolTip": "C:\\MY_CODE\\GitHubRepos\\OpenGL_Aquarium\\Aquarium\\ViewOBJModel\\ViewOBJModel.cpp",
               "RelativeToolTip": "ViewOBJModel\\ViewOBJModel.cpp",
-              "ViewState": "AQIAALwBAAAAAAAAAAAgwMkBAAAAAAAA",
+              "ViewState": "AQIAAMEBAAAAAAAAAAAiwM8BAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-14T06:28:07.715Z",
               "EditorCaption": ""

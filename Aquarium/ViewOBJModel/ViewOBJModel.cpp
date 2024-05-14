@@ -263,10 +263,6 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	}
 }
 
-float bubbleSpeed = 0.5f; // Speed of oscillation
-float maxHeight = 25.0f;    // Maximum height of oscillation
-float currentTime = glfwGetTime();
-
 int main()
 {
 	// glfw: initialize and configure
@@ -396,6 +392,9 @@ int main()
 	std::string fishObjFileName = (currentPath + "\\Models\\Fish\\fish.obj");
 	Model fishObjModel(fishObjFileName, false);
 
+	float bubbleY = -2.0f;
+	float bubbleSpeed = 1.2f; // Adjust as needed
+	float bubbleHeight = 5.0f; // Adjust as needed
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
 		// per-frame time logic
@@ -453,20 +452,24 @@ int main()
 		lightingShader.setMat4("model", aquariumModelMatrix); // Folosim aceeași matrice de model pentru acvariu ca și pentru pește
 		aquariumModel.Draw(lightingShader);
 
-		//bubble
-		float newY = maxHeight * sin(currentTime * bubbleSpeed);
+		// BUBBLE LOGIC
+		bubbleY += bubbleSpeed * deltaTime;
 
-		// Update the translation vector of the bubble's model matrix
-		glm::mat4 bubbleModelMatrix = glm::scale(glm::mat4(1.0), glm::vec3(0.1f)); // Scale the bubble
-		bubbleModelMatrix = glm::translate(bubbleModelMatrix, glm::vec3(1.0f, newY, 3.0f)); // Position the bubble
-
-		// Draw the bubble only if it hasn't reached the maximum height
-		if (newY < maxHeight) {
-			lightingShader.setMat4("model", bubbleModelMatrix);
-			bubbleObjModel.Draw(lightingShader);
+		if (bubbleY > bubbleHeight) {
+			bubbleY = -2.0f; // Reset to the bottom
 		}
 
-		currentTime += deltaTime;
+		// Set the new position of the bubble
+		glm::mat4 bubbleModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, bubbleY, 2.0f));
+
+		// Scale the bubble to make it smaller
+		bubbleModelMatrix = glm::scale(bubbleModelMatrix, glm::vec3(0.05f));
+
+		// Set the model matrix in the shader
+		lightingShader.setMat4("model", bubbleModelMatrix);
+
+		// Draw the bubble object
+		bubbleObjModel.Draw(lightingShader);
 
 		// also draw the lamp object
 		lampShader.use();
