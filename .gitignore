@@ -9,3 +9,10 @@ ipch/
 *.cachefile
 *.VC.db
 *.VC.VC.opendb
+Aquarium/.vs/Aquarium/v17/DocumentLayout.json
+Aquarium/.vs/Aquarium/v17/.suo
+*.db-shm
+*.db-wal
+*.vsidx
+*.suo
+ViewOBJModel/.vs/ViewOBJModel/v17/DocumentLayout.json
