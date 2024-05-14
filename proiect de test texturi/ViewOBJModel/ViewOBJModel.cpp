@@ -263,6 +263,10 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 	}
 }
 
+float bubbleSpeed = 0.5f; // Speed of oscillation
+float maxHeight = 25.0f;    // Maximum height of oscillation
+float currentTime = glfwGetTime();
+
 int main()
 {
 	// glfw: initialize and configure
@@ -448,6 +452,21 @@ int main()
 		// Desenăm acvariul folosind aceeași matrice de model ca peștele
 		lightingShader.setMat4("model", aquariumModelMatrix); // Folosim aceeași matrice de model pentru acvariu ca și pentru pește
 		aquariumModel.Draw(lightingShader);
+
+		//bubble
+		float newY = maxHeight * sin(currentTime * bubbleSpeed);
+
+		// Update the translation vector of the bubble's model matrix
+		glm::mat4 bubbleModelMatrix = glm::scale(glm::mat4(1.0), glm::vec3(0.1f)); // Scale the bubble
+		bubbleModelMatrix = glm::translate(bubbleModelMatrix, glm::vec3(1.0f, newY, 3.0f)); // Position the bubble
+
+		// Draw the bubble only if it hasn't reached the maximum height
+		if (newY < maxHeight) {
+			lightingShader.setMat4("model", bubbleModelMatrix);
+			bubbleObjModel.Draw(lightingShader);
+		}
+
+		currentTime += deltaTime;
 
 		// also draw the lamp object
 		lampShader.use();
