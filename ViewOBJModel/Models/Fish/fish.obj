@@ -1,7 +1,7 @@
 # 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
 # File Created: 09.12.2011 13:32:27
 
-mtllib 12265_Fish_v1_L2.mtl
+mtllib fish.mtl
 
 #
 # object 12265_Fish

@@ -386,16 +386,16 @@ int main()
 	Shader lightingShader((currentPath + "\\Shaders\\PhongLight.vs").c_str(), (currentPath + "\\Shaders\\PhongLight.fs").c_str());
 	Shader lampShader((currentPath + "\\Shaders\\Lamp.vs").c_str(), (currentPath + "\\Shaders\\Lamp.fs").c_str());
 
-	std::string objFileName = (currentPath + "\\Models\\CylinderProject.obj");
-	Model objModel(objFileName, false);
+	//std::string objFileName = (currentPath + "\\Models\\CylinderProject.obj");
+	//Model objModel(objFileName, false);
 
 	std::string fishObj = (currentPath + "\\Models\\Fish\\fish.obj");
 	Model fishObjModel(fishObj, false);
-	std::string aquarium = (currentPath + "\\Models\\aquarium\\12987_Saltwater_Aquarium_v1_l1.obj");
-	Model aquariumModel(aquarium, false);
+	//std::string aquarium = (currentPath + "\\Models\\aquarium\\12987_Saltwater_Aquarium_v1_l1.obj");
+	//Model aquariumModel(aquarium, false);
 
-	std::string bubbleObj = (currentPath + "\\Models\\Bubble\\bubble.obj");
-	Model bubbleObjModel(bubbleObj, false);
+	//std::string bubbleObj = (currentPath + "\\Models\\Bubble\\bubble.obj");
+	//Model bubbleObjModel(bubbleObj, false);
 
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
@@ -423,9 +423,9 @@ int main()
 		lightingShader.setMat4("view", pCamera->GetViewMatrix());
 
 		// render the model
-		glm::mat4 model = glm::scale(glm::mat4(1.0), glm::vec3(0.001f));
-		lightingShader.setMat4("model", model);
-		objModel.Draw(lightingShader);
+		//glm::mat4 model = glm::scale(glm::mat4(1.0), glm::vec3(0.001f));
+		//lightingShader.setMat4("model", model);
+		//objModel.Draw(lightingShader);
 
 		// Definește variabilele pentru raza și viteza de rotație
 		float radius = 2.0f; // Raza cercului pe care peștele înoată
@@ -455,26 +455,26 @@ int main()
 		// Desenăm peștele folosind shader-ul de iluminare
 		fishObjModel.Draw(lightingShader);
 
-		glm::mat4 aquariumModelMatrix = glm::scale(glm::mat4(15.0), glm::vec3(0.03f));
-		aquariumModelMatrix = glm::translate(aquariumModelMatrix, glm::vec3(0.0f, -5.0f, 0.0f));
-		aquariumModelMatrix = glm::rotate(aquariumModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		// Desenăm acvariul folosind aceeași matrice de model ca peștele
-		lightingShader.setMat4("model", aquariumModelMatrix); // Folosim aceeași matrice de model pentru acvariu ca și pentru pește
-		aquariumModel.Draw(lightingShader);
+		//glm::mat4 aquariumModelMatrix = glm::scale(glm::mat4(15.0), glm::vec3(0.03f));
+		//aquariumModelMatrix = glm::translate(aquariumModelMatrix, glm::vec3(0.0f, -5.0f, 0.0f));
+		//aquariumModelMatrix = glm::rotate(aquariumModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		//// Desenăm acvariul folosind aceeași matrice de model ca peștele
+		//lightingShader.setMat4("model", aquariumModelMatrix); // Folosim aceeași matrice de model pentru acvariu ca și pentru pește
+		//aquariumModel.Draw(lightingShader);
 
 
 		// bubble 
 		float newY = maxHeight * sin(currentTime * bubbleSpeed);
 
 		// Update the translation vector of the bubble's model matrix
-		glm::mat4 bubbleModelMatrix = glm::scale(glm::mat4(1.0), glm::vec3(0.1f)); // Scale the bubble
-		bubbleModelMatrix = glm::translate(bubbleModelMatrix, glm::vec3(1.0f, newY, 3.0f)); // Position the bubble
+		//glm::mat4 bubbleModelMatrix = glm::scale(glm::mat4(1.0), glm::vec3(0.1f)); // Scale the bubble
+		//bubbleModelMatrix = glm::translate(bubbleModelMatrix, glm::vec3(1.0f, newY, 3.0f)); // Position the bubble
 
-		// Draw the bubble only if it hasn't reached the maximum height
-		if (newY < maxHeight) {
-			lightingShader.setMat4("model", bubbleModelMatrix);
-			bubbleObjModel.Draw(lightingShader);
-		}
+		//// Draw the bubble only if it hasn't reached the maximum height
+		//if (newY < maxHeight) {
+		//	lightingShader.setMat4("model", bubbleModelMatrix);
+		//	bubbleObjModel.Draw(lightingShader);
+		//}
 
 		// Update current time
 		currentTime += deltaTime;

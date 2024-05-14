@@ -28,7 +28,7 @@ void Model::loadModel(string const& path, bool bSmoothNormals)
         return;
     }
     // retrieve the directory path of the filepath
-    directory = path.substr(0, path.find_last_of('/'));
+    directory = path.substr(0, path.find_last_of('\\'));
 
     // process ASSIMP's root node recursively
     processNode(scene->mRootNode, scene);
@@ -78,7 +78,7 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
             vertex.Normal = vector;
         }
         else {
-           int j = 0;
+            int j = 0;
         }
         // texture coordinates
         if (mesh->mTextureCoords[0]) // does the mesh contain texture coordinates?
@@ -160,9 +160,9 @@ vector<Texture> Model::loadMaterialTextures(aiMaterial* mat, aiTextureType type,
         if (!skip)
         {   // if texture hasn't been loaded already, load it
             Texture texture;
-            texture.id = TextureFromFile("E:\laborator s3d\ViewOBJModel\Models\Pirat\peste.jpg", this->directory);
+            texture.id = TextureFromFile(str.C_Str(), this->directory);
             texture.type = typeName;
-            texture.path = "E:\laborator s3d\ViewOBJModel\Models\Pirat\peste.jpg";
+            texture.path = str.C_Str();
             textures.push_back(texture);
             textures_loaded.push_back(texture);  // store it as texture loaded for entire model, to ensure we won't unnecesery load duplicate textures.
         }
@@ -172,40 +172,39 @@ vector<Texture> Model::loadMaterialTextures(aiMaterial* mat, aiTextureType type,
 
 unsigned int TextureFromFile(const char* path, const string& directory, bool gamma)
 {
-    string filename = string(path);
-    filename = directory + '/' + filename;
+    string strTexturePath = string(directory) + '\\' + path;
 
-    unsigned int textureID;
-    glGenTextures(1, &textureID);
+    unsigned int textureId = -1;
 
-    int width, height, nrComponents;
-    unsigned char* data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
-    if (data)
-    {
+    // load image, create texture and generate mipmaps
+    int width, height, nrChannels;
+    //stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis.
+    unsigned char* data = stbi_load(strTexturePath.c_str(), &width, &height, &nrChannels, 0);
+    if (data) {
         GLenum format;
-        if (nrComponents == 1)
+        if (nrChannels == 1)
             format = GL_RED;
-        else if (nrComponents == 3)
+        else if (nrChannels == 3)
             format = GL_RGB;
-        else if (nrComponents == 4)
+        else if (nrChannels == 4)
             format = GL_RGBA;
 
-        glBindTexture(GL_TEXTURE_2D, textureID);
+        glGenTextures(1, &textureId);
+        glBindTexture(GL_TEXTURE_2D, textureId);
         glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
 
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        // set the texture wrapping parameters
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, format == GL_RGBA ? GL_CLAMP_TO_EDGE : GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, format == GL_RGBA ? GL_CLAMP_TO_EDGE : GL_REPEAT);
+        // set texture filtering parameters
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-        stbi_image_free(data);
     }
-    else
-    {
-        std::cout << "Texture failed to load at path: " << path << std::endl;
-        stbi_image_free(data);
+    else {
+        std::cout << "Failed to load texture: " << strTexturePath << std::endl;
     }
+    stbi_image_free(data);
 
-    return textureID;
+    return textureId;
 }
