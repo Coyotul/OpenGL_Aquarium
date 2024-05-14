@@ -449,11 +449,7 @@ int main()
 		// Desenăm peștele folosind shader-ul de iluminare
 		fishObjModel.Draw(lightingShader);
 
-		// Setăm matricea de model în shader-ul de iluminare
-		lightingShader.setMat4("model", fishModelMatrix);
 
-		// Desenăm peștele folosind shader-ul de iluminare
-		fishObjModel.Draw(lightingShader);
 
 		//glm::mat4 aquariumModelMatrix = glm::scale(glm::mat4(15.0), glm::vec3(0.03f));
 		//aquariumModelMatrix = glm::translate(aquariumModelMatrix, glm::vec3(0.0f, -5.0f, 0.0f));

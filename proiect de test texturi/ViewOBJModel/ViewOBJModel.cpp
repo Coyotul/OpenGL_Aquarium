@@ -1,4 +1,4 @@
-// ViewOBJModel.cpp : This file contains the 'main' function. Program execution begins and ends there.
+﻿// ViewOBJModel.cpp : This file contains the 'main' function. Program execution begins and ends there.
 
 #include <Windows.h>
 #include <locale>
@@ -189,7 +189,7 @@ private:
 		//std::cout << "yaw = " << yaw << std::endl;
 		//std::cout << "pitch = " << pitch << std::endl;
 
-		// Avem grij� s� nu ne d�m peste cap
+		// Avem grijã sã nu ne dãm peste cap
 		if (constrainPitch) {
 			if (pitch > 89.0f)
 				pitch = 89.0f;
@@ -197,7 +197,7 @@ private:
 				pitch = -89.0f;
 		}
 
-		// Se modific� vectorii camerei pe baza unghiurilor Euler
+		// Se modificã vectorii camerei pe baza unghiurilor Euler
 		UpdateCameraVectors();
 	}
 
@@ -386,8 +386,8 @@ int main()
 	//std::string objFileName = (currentPath + "\\Models\\CylinderProject.obj");
 	//Model objModel(objFileName, false);
 
-	std::string piratObjFileName = (currentPath + "\\Models\\Fish\\fish.obj");
-	Model piratObjModel(piratObjFileName, false);
+	std::string fishObjFileName = (currentPath + "\\Models\\Fish\\fish.obj");
+	Model fishObjModel(fishObjFileName, false);
 
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
@@ -417,11 +417,26 @@ int main()
 		//glm::mat4 model = glm::scale(glm::mat4(1.0), glm::vec3(0.001f));
 		//lightingShader.setMat4("model", model);
 		//objModel.Draw(lightingShader);
+		float radius = 2.0f; // Raza cercului pe care peștele înoată
+		float angularSpeed = 0.5f; // Viteza de rotație a peștelui în jurul cercului
+
+		// Calculăm unghiul curent bazat pe timp și pe viteza de rotație dorită
+		float angle = glfwGetTime() * angularSpeed;
+
+		// Calculăm noile coordonate x și z ale poziției peștelui pe baza unghiului și razei
+		float newX = radius * cos(angle);
+		float newZ = radius * sin(angle);
 
 		//lightingShader.SetVec3("objectColor", 1.f, 1.0f, 1.f);
-		glm::mat4 piratModel = glm::scale(glm::mat4(1.0), glm::vec3(0.2f));
-		lightingShader.setMat4("model", piratModel);
-		piratObjModel.Draw(lightingShader);
+		glm::mat4 fishModelMatrix = glm::mat4(0.03f);
+		fishModelMatrix = glm::translate(fishModelMatrix, glm::vec3(newX, 0.0f, newZ));
+		fishModelMatrix = glm::rotate(fishModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // Rotim axa y în jurul axei z
+		
+		// Setăm matricea de model în shader-ul de iluminare
+		lightingShader.setMat4("model", fishModelMatrix);
+
+		// Desenăm peștele folosind shader-ul de iluminare
+		fishObjModel.Draw(lightingShader);
 
 		// also draw the lamp object
 		lampShader.use();
