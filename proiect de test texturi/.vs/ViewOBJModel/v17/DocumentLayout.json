@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\ViewOBJModel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\Shaders\\PhongLight.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:Shaders\\PhongLight.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\Shaders\\PhongLight.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
       "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:Shaders\\PhongLight.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\Shaders\\Lamp.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:Shaders\\Lamp.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\Shaders\\PhongLight.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:Shaders\\PhongLight.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\Shaders\\Lamp.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
       "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:Shaders\\Lamp.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\Shaders\\Lamp.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:Shaders\\Lamp.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PhongLight.vs",
               "DocumentMoniker": "E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\Shaders\\PhongLight.vs",
               "RelativeDocumentMoniker": "Shaders\\PhongLight.vs",
@@ -42,23 +42,25 @@
               "RelativeToolTip": "Shaders\\PhongLight.vs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-14T06:37:02.282Z"
+              "WhenOpened": "2024-05-14T06:37:02.282Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "PhongLight.fs",
               "DocumentMoniker": "E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\Shaders\\PhongLight.fs",
               "RelativeDocumentMoniker": "Shaders\\PhongLight.fs",
               "ToolTip": "E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\Shaders\\PhongLight.fs",
               "RelativeToolTip": "Shaders\\PhongLight.fs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-14T06:36:49.678Z"
+              "WhenOpened": "2024-05-14T06:36:49.678Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Lamp.vs",
               "DocumentMoniker": "E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\Shaders\\Lamp.vs",
               "RelativeDocumentMoniker": "Shaders\\Lamp.vs",
@@ -66,11 +68,12 @@
               "RelativeToolTip": "Shaders\\Lamp.vs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-14T06:36:39.006Z"
+              "WhenOpened": "2024-05-14T06:36:39.006Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Lamp.fs",
               "DocumentMoniker": "E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\Shaders\\Lamp.fs",
               "RelativeDocumentMoniker": "Shaders\\Lamp.fs",
@@ -78,7 +81,8 @@
               "RelativeToolTip": "Shaders\\Lamp.fs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-14T06:36:22.968Z"
+              "WhenOpened": "2024-05-14T06:36:22.968Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -86,9 +90,9 @@
               "Title": "ViewOBJModel.cpp",
               "DocumentMoniker": "E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\ViewOBJModel\\ViewOBJModel.cpp",
               "RelativeDocumentMoniker": "ViewOBJModel\\ViewOBJModel.cpp",
-              "ToolTip": "E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\ViewOBJModel\\ViewOBJModel.cpp*",
-              "RelativeToolTip": "ViewOBJModel\\ViewOBJModel.cpp*",
-              "ViewState": "AQIAALwBAAAAAAAAAAAgwMkBAAAAAAAA",
+              "ToolTip": "E:\\laborator s3d\\OpenGL_Aquarium\\proiect de test texturi\\ViewOBJModel\\ViewOBJModel.cpp",
+              "RelativeToolTip": "ViewOBJModel\\ViewOBJModel.cpp",
+              "ViewState": "AQIAALwBAAAAAAAAAAAgwNIBAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-14T06:28:07.715Z",
               "EditorCaption": ""
