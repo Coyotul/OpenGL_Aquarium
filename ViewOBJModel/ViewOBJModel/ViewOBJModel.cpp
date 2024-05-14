@@ -26,6 +26,8 @@
 #pragma comment (lib, "glew32.lib")
 #pragma comment (lib, "OpenGL32.lib")
 
+#include <stb_image.h>
+
 // settings
 const unsigned int SCR_WIDTH = 1800;
 const unsigned int SCR_HEIGHT = 800;
@@ -214,7 +216,7 @@ private:
 	}
 
 protected:
-	const float cameraSpeedFactor = 2.5f;
+	const float cameraSpeedFactor = 5.5f;
 	const float mouseSensitivity = 0.1f;
 
 	// Perspective properties
@@ -262,6 +264,10 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 
 	}
 }
+
+float bubbleSpeed = 0.5f; // Speed of oscillation
+float maxHeight = 25.0f;    // Maximum height of oscillation
+float currentTime = glfwGetTime();
 
 int main()
 {
@@ -386,7 +392,10 @@ int main()
 	std::string fishObj = (currentPath + "\\Models\\Fish\\fish.obj");
 	Model fishObjModel(fishObj, false);
 	std::string aquarium = (currentPath + "\\Models\\aquarium\\12987_Saltwater_Aquarium_v1_l1.obj");
-	Model aquariumModel (aquarium, false);
+	Model aquariumModel(aquarium, false);
+
+	std::string bubbleObj = (currentPath + "\\Models\\Bubble\\bubble.obj");
+	Model bubbleObjModel(bubbleObj, false);
 
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
@@ -452,6 +461,24 @@ int main()
 		// Desenăm acvariul folosind aceeași matrice de model ca peștele
 		lightingShader.setMat4("model", aquariumModelMatrix); // Folosim aceeași matrice de model pentru acvariu ca și pentru pește
 		aquariumModel.Draw(lightingShader);
+
+
+		// bubble 
+		float newY = maxHeight * sin(currentTime * bubbleSpeed);
+
+		// Update the translation vector of the bubble's model matrix
+		glm::mat4 bubbleModelMatrix = glm::scale(glm::mat4(1.0), glm::vec3(0.1f)); // Scale the bubble
+		bubbleModelMatrix = glm::translate(bubbleModelMatrix, glm::vec3(1.0f, newY, 3.0f)); // Position the bubble
+
+		// Draw the bubble only if it hasn't reached the maximum height
+		if (newY < maxHeight) {
+			lightingShader.setMat4("model", bubbleModelMatrix);
+			bubbleObjModel.Draw(lightingShader);
+		}
+
+		// Update current time
+		currentTime += deltaTime;
+
 		// also draw the lamp object
 		lampShader.use();
 		lampShader.setMat4("projection", pCamera->GetProjectionMatrix());
