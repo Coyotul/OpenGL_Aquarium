@@ -1,0 +1,12 @@
+﻿  ViewOBJModel.cpp
+E:\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(405,18): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(405,18): warning C4244:         with
+E:\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(405,18): warning C4244:         [
+E:\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(405,18): warning C4244:             T=float
+E:\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(405,18): warning C4244:         ]
+E:\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(406,18): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(406,18): warning C4244:         with
+E:\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(406,18): warning C4244:         [
+E:\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(406,18): warning C4244:             T=float
+E:\ViewOBJModel\ViewOBJModel\ViewOBJModel.cpp(406,18): warning C4244:         ]
+  ViewOBJModel.vcxproj -> E:\ViewOBJModel\x64\Debug\ViewOBJModel.exe

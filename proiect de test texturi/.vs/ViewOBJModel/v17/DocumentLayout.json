@@ -1,0 +1,230 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\ViewOBJModel\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\ViewOBJModel\\ViewOBJModel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\ViewOBJModel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\ViewOBJModel\\Model.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\Model.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\ViewOBJModel\\Model.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\Model.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\ViewOBJModel\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\Mesh.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\Shaders\\PhongLight.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:Shaders\\PhongLight.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\Shaders\\PhongLight.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:Shaders\\PhongLight.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\Shaders\\Lamp.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:Shaders\\Lamp.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\Shaders\\Lamp.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:Shaders\\Lamp.fs||{8A5AA6CF-46E3-4520-A70A-7393D15233E9}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\ViewOBJModel\\Shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\Shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\ViewOBJModel\\Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\ViewOBJModel\\Vertex.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\Vertex.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\ViewOBJModel\\Shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\Shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|E:\\ViewOBJModel\\ViewOBJModel\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D40162B5-4DD6-44CB-A939-4E6BCB7AD8B3}|ViewOBJModel\\ViewOBJModel.vcxproj|solutionrelative:ViewOBJModel\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ViewOBJModel.cpp",
+              "DocumentMoniker": "E:\\ViewOBJModel\\ViewOBJModel\\ViewOBJModel.cpp",
+              "RelativeDocumentMoniker": "ViewOBJModel\\ViewOBJModel.cpp",
+              "ToolTip": "E:\\ViewOBJModel\\ViewOBJModel\\ViewOBJModel.cpp",
+              "RelativeToolTip": "ViewOBJModel\\ViewOBJModel.cpp",
+              "ViewState": "AQIAAMsBAAAAAAAAAAAwwPABAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T15:12:04.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PhongLight.fs",
+              "DocumentMoniker": "E:\\ViewOBJModel\\Shaders\\PhongLight.fs",
+              "RelativeDocumentMoniker": "Shaders\\PhongLight.fs",
+              "ToolTip": "E:\\ViewOBJModel\\Shaders\\PhongLight.fs",
+              "RelativeToolTip": "Shaders\\PhongLight.fs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAwwDMAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-13T17:00:47.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Shader.h",
+              "DocumentMoniker": "E:\\ViewOBJModel\\ViewOBJModel\\Shader.h",
+              "RelativeDocumentMoniker": "ViewOBJModel\\Shader.h",
+              "ToolTip": "E:\\ViewOBJModel\\ViewOBJModel\\Shader.h",
+              "RelativeToolTip": "ViewOBJModel\\Shader.h",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABoAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-13T15:12:04.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Model.cpp",
+              "DocumentMoniker": "E:\\ViewOBJModel\\ViewOBJModel\\Model.cpp",
+              "RelativeDocumentMoniker": "ViewOBJModel\\Model.cpp",
+              "ToolTip": "E:\\ViewOBJModel\\ViewOBJModel\\Model.cpp",
+              "RelativeToolTip": "ViewOBJModel\\Model.cpp",
+              "ViewState": "AQIAAK0AAAAAAAAAAAAwwMMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T15:12:05.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Model.h",
+              "DocumentMoniker": "E:\\ViewOBJModel\\ViewOBJModel\\Model.h",
+              "RelativeDocumentMoniker": "ViewOBJModel\\Model.h",
+              "ToolTip": "E:\\ViewOBJModel\\ViewOBJModel\\Model.h",
+              "RelativeToolTip": "ViewOBJModel\\Model.h",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-13T15:12:05.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PhongLight.vs",
+              "DocumentMoniker": "E:\\ViewOBJModel\\Shaders\\PhongLight.vs",
+              "RelativeDocumentMoniker": "Shaders\\PhongLight.vs",
+              "ToolTip": "E:\\ViewOBJModel\\Shaders\\PhongLight.vs",
+              "RelativeToolTip": "Shaders\\PhongLight.vs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-13T17:01:12.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Lamp.vs",
+              "DocumentMoniker": "E:\\ViewOBJModel\\Shaders\\Lamp.vs",
+              "RelativeDocumentMoniker": "Shaders\\Lamp.vs",
+              "ToolTip": "E:\\ViewOBJModel\\Shaders\\Lamp.vs",
+              "RelativeToolTip": "Shaders\\Lamp.vs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-13T17:00:28.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Texture.h",
+              "DocumentMoniker": "E:\\ViewOBJModel\\ViewOBJModel\\Texture.h",
+              "RelativeDocumentMoniker": "ViewOBJModel\\Texture.h",
+              "ToolTip": "E:\\ViewOBJModel\\ViewOBJModel\\Texture.h",
+              "RelativeToolTip": "ViewOBJModel\\Texture.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-13T15:39:06.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Vertex.h",
+              "DocumentMoniker": "E:\\ViewOBJModel\\ViewOBJModel\\Vertex.h",
+              "RelativeDocumentMoniker": "ViewOBJModel\\Vertex.h",
+              "ToolTip": "E:\\ViewOBJModel\\ViewOBJModel\\Vertex.h",
+              "RelativeToolTip": "ViewOBJModel\\Vertex.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-13T16:56:22.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Shader.cpp",
+              "DocumentMoniker": "E:\\ViewOBJModel\\ViewOBJModel\\Shader.cpp",
+              "RelativeDocumentMoniker": "ViewOBJModel\\Shader.cpp",
+              "ToolTip": "E:\\ViewOBJModel\\ViewOBJModel\\Shader.cpp",
+              "RelativeToolTip": "ViewOBJModel\\Shader.cpp",
+              "ViewState": "AQIAAFgAAAAAAAAAAAAwwHIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T15:12:05.101Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Mesh.cpp",
+              "DocumentMoniker": "E:\\ViewOBJModel\\ViewOBJModel\\Mesh.cpp",
+              "RelativeDocumentMoniker": "ViewOBJModel\\Mesh.cpp",
+              "ToolTip": "E:\\ViewOBJModel\\ViewOBJModel\\Mesh.cpp",
+              "RelativeToolTip": "ViewOBJModel\\Mesh.cpp",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAwwI4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T15:12:04.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Lamp.fs",
+              "DocumentMoniker": "E:\\ViewOBJModel\\Shaders\\Lamp.fs",
+              "RelativeDocumentMoniker": "Shaders\\Lamp.fs",
+              "ToolTip": "E:\\ViewOBJModel\\Shaders\\Lamp.fs",
+              "RelativeToolTip": "Shaders\\Lamp.fs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-13T15:18:59.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Mesh.h",
+              "DocumentMoniker": "E:\\ViewOBJModel\\ViewOBJModel\\Mesh.h",
+              "RelativeDocumentMoniker": "ViewOBJModel\\Mesh.h",
+              "ToolTip": "E:\\ViewOBJModel\\ViewOBJModel\\Mesh.h",
+              "RelativeToolTip": "ViewOBJModel\\Mesh.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-13T15:19:03.575Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
