@@ -1,13 +1,13 @@
 ﻿  ViewOBJModel.cpp
-C:\MY_CODE\GitHubRepos\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(405,18): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\MY_CODE\GitHubRepos\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(405,18): warning C4244:         with
-C:\MY_CODE\GitHubRepos\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(405,18): warning C4244:         [
-C:\MY_CODE\GitHubRepos\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(405,18): warning C4244:             T=float
-C:\MY_CODE\GitHubRepos\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(405,18): warning C4244:         ]
-C:\MY_CODE\GitHubRepos\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(406,18): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-C:\MY_CODE\GitHubRepos\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(406,18): warning C4244:         with
-C:\MY_CODE\GitHubRepos\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(406,18): warning C4244:         [
-C:\MY_CODE\GitHubRepos\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(406,18): warning C4244:             T=float
-C:\MY_CODE\GitHubRepos\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(406,18): warning C4244:         ]
-C:\MY_CODE\GitHubRepos\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(424,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  ViewOBJModel.vcxproj -> C:\MY_CODE\GitHubRepos\OpenGL_Aquarium\proiect de test texturi\x64\Debug\ViewOBJModel.exe
+E:\laborator s3d\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(408,20): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(408,20): warning C4244:         with
+E:\laborator s3d\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(408,20): warning C4244:         [
+E:\laborator s3d\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(408,20): warning C4244:             T=float
+E:\laborator s3d\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(408,20): warning C4244:         ]
+E:\laborator s3d\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(409,20): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(409,20): warning C4244:         with
+E:\laborator s3d\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(409,20): warning C4244:         [
+E:\laborator s3d\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(409,20): warning C4244:             T=float
+E:\laborator s3d\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(409,20): warning C4244:         ]
+E:\laborator s3d\OpenGL_Aquarium\proiect de test texturi\ViewOBJModel\ViewOBJModel.cpp(428,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  ViewOBJModel.vcxproj -> E:\laborator s3d\OpenGL_Aquarium\proiect de test texturi\x64\Debug\ViewOBJModel.exe

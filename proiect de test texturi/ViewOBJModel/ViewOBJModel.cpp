@@ -383,8 +383,11 @@ int main()
 	Shader lightingShader((currentPath + "\\Shaders\\PhongLight.vs").c_str(), (currentPath + "\\Shaders\\PhongLight.fs").c_str());
 	Shader lampShader((currentPath + "\\Shaders\\Lamp.vs").c_str(), (currentPath + "\\Shaders\\Lamp.fs").c_str());
 
-	//std::string objFileName = (currentPath + "\\Models\\CylinderProject.obj");
-	//Model objModel(objFileName, false);
+	std::string aquarium = (currentPath + "\\Models\\aquarium\\12987_Saltwater_Aquarium_v1_l1.obj");
+	Model aquariumModel(aquarium, false);
+
+	std::string bubbleObj = (currentPath + "\\Models\\Bubble\\bubble.obj");
+	Model bubbleObjModel(bubbleObj, false);
 
 	std::string fishObjFileName = (currentPath + "\\Models\\Fish\\fish.obj");
 	Model fishObjModel(fishObjFileName, false);
@@ -402,8 +405,9 @@ int main()
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		lightPos.x = 2 * cos(glfwGetTime());
-		lightPos.z = 2 * sin(glfwGetTime());
+		lightPos.x = 0.5 * cos(glfwGetTime());
+		lightPos.z = 0.5 * sin(glfwGetTime());
+
 
 		lightingShader.use();
 		lightingShader.SetVec3("lightColor", 1.0f, 1.0f, 1.0f);
@@ -437,6 +441,13 @@ int main()
 
 		// Desenăm peștele folosind shader-ul de iluminare
 		fishObjModel.Draw(lightingShader);
+
+		glm::mat4 aquariumModelMatrix = glm::scale(glm::mat4(15.0), glm::vec3(0.03f));
+		aquariumModelMatrix = glm::translate(aquariumModelMatrix, glm::vec3(0.0f, -5.0f, 0.0f));
+		aquariumModelMatrix = glm::rotate(aquariumModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		// Desenăm acvariul folosind aceeași matrice de model ca peștele
+		lightingShader.setMat4("model", aquariumModelMatrix); // Folosim aceeași matrice de model pentru acvariu ca și pentru pește
+		aquariumModel.Draw(lightingShader);
 
 		// also draw the lamp object
 		lampShader.use();
