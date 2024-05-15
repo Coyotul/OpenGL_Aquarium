@@ -370,7 +370,7 @@ int main()
 	//x y z
 	//y in sus
 	//z in departare
-	glm::vec3 lightPos(0.0f, 5.2f, 1.0f);
+	glm::vec3 lightPos(0.0f, 8.2f, 1.0f);
 
 	wchar_t buffer[MAX_PATH];
 	GetCurrentDirectoryW(MAX_PATH, buffer);
@@ -428,9 +428,11 @@ int main()
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		lightPos.x = 0.5 * cos(glfwGetTime());
-		lightPos.z = 0.5 * sin(glfwGetTime());
+		float radius = 10.0f; // Raza cercului pe care peștele înoată
+		float angularSpeed = 0.5f; // Viteza de rotație a peștelui în jurul cercului
 
+		lightPos.x = radius * cos(glfwGetTime() * angularSpeed);
+		lightPos.z = radius * sin(glfwGetTime() * angularSpeed);
 
 		lightingShader.use();
 		lightingShader.SetVec3("lightColor", 0.6f, 0.6f, 1.0f);
@@ -444,8 +446,7 @@ int main()
 		//glm::mat4 model = glm::scale(glm::mat4(1.0), glm::vec3(0.001f));
 		//lightingShader.setMat4("model", model);
 		//objModel.Draw(lightingShader);
-		float radius = 2.0f; // Raza cercului pe care peștele înoată
-		float angularSpeed = 0.5f; // Viteza de rotație a peștelui în jurul cercului
+		
 
 		// Calculăm unghiul curent bazat pe timp și pe viteza de rotație dorită
 		float angle = glfwGetTime() * angularSpeed;
