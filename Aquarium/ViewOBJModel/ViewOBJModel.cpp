@@ -393,6 +393,7 @@ int main()
 	Model bubble2ObjModel(bubbleObj, false);
 	Model bubble3ObjModel(bubbleObj, false);
 	Model bubble4ObjModel(bubbleObj, false);
+	Model bubble5ObjModel(bubbleObj, false);
 
 	std::string fishObjFileName = (currentPath + "\\Models\\Fish\\fish.obj");
 	Model fishObjModel(fishObjFileName, false);
@@ -422,6 +423,10 @@ int main()
 	// for bubble 4
 	float bubble4Y = -2.0f;
 	float bubble4Speed = 0.9f;
+	
+	// for bubble 5
+	float bubble5Y = 0.0f;
+	float bubble5Speed = 1.0f;
 
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
@@ -643,6 +648,28 @@ int main()
 
 		// Draw the bubble object
 		bubble4ObjModel.Draw(bubbleShader);
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 5 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		bubble5Y += bubble5Speed * deltaTime;
+
+		if (bubble5Y > bubbleHeight) {
+			bubble5Y = 0.0f; // Reset to the bottom
+		}
+
+		// Set the new position of the bubble
+		glm::mat4 bubble5ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(3.0f, bubble5Y, 0.0f));
+
+		// Scale the bubble to make it smaller
+		bubble5ModelMatrix = glm::scale(bubble5ModelMatrix, glm::vec3(0.04f));
+
+		// Set the model matrix in the shader
+		bubbleShader.use();
+		bubbleShader.setMat4("model", bubble5ModelMatrix);
+		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
+		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
+
+		// Draw the bubble object
+		bubble5ObjModel.Draw(bubbleShader);
 
 		glDisable(GL_BLEND);
 
