@@ -12,8 +12,8 @@ newmtl 12987_saltwater_aquarium_plastic_1
 	Kd 0.0980 0.0980 0.0980
 	Ks 0.5940 0.5940 0.5940
 	Ke 0.0000 0.0000 0.0000
-	map_Ka geam.jpg
-	map_Kd geam.jpg
+	map_Ka margini.jpg
+	map_Kd margini.jpg
 
 newmtl 12987_saltwater_aquarium_glass
 	Ns 66.0000
@@ -194,6 +194,6 @@ newmtl 12987_saltwater_aquarium_rubber
 	Kd 0.1137 0.1137 0.1137
 	Ks 0.2610 0.2610 0.2610
 	Ke 0.0000 0.0000 0.0000
-	map_Ka geam.jpg
-	map_Kd geam.jpg
+	map_Ka margini.jpg
+	map_Kd margini.jpg
 	
