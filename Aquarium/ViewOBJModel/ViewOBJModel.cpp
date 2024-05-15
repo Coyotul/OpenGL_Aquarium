@@ -401,6 +401,9 @@ int main()
 	std::string goldFishObjFileName = (currentPath + "\\Models\\BlackGoldfish\\12990_Black_Moor_Goldfish_v1_l2.obj");
 	Model goldFishObjModel(goldFishObjFileName, false);
 
+	std::string diverObjFileName = (currentPath + "\\Models\\DeepSeaDiver\\13018_Aquarium_Deep_Sea_Diver_v1_L1.obj");
+	Model diverObjModel(diverObjFileName, false);
+
 	float bubbleHeight = 5.0f;
 	// for bubble 1
 	float bubble1Y = -2.0f;
@@ -444,6 +447,27 @@ int main()
 
 		lightingShader.setMat4("projection", pCamera->GetProjectionMatrix());
 		lightingShader.setMat4("view", pCamera->GetViewMatrix());
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DIVER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// Calculate the position of the diver
+		float diverX = 1.0f; // Adjust the X position as needed
+		float diverY = 0.67f; // Adjust the Y position as needed
+		float diverZ = 0.0f; // Adjust the Z position as needed
+
+		// Set the model matrix for the diver
+		glm::mat4 diverModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(diverX, diverY, diverZ));
+
+		// Rotate the diver to align Z-axis with Y-axis
+		diverModelMatrix = glm::rotate(diverModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+		// Scale the diver if needed
+		diverModelMatrix = glm::scale(diverModelMatrix, glm::vec3(0.07f));
+
+		// Set the model matrix in the shader
+		lightingShader.setMat4("model", diverModelMatrix);
+
+		// Draw the diver
+		diverObjModel.Draw(lightingShader);
 		
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CLOWNFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Calculăm unghiul curent bazat pe timp și pe viteza de rotație dorită
