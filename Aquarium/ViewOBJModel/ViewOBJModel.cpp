@@ -398,6 +398,9 @@ int main()
 	std::string fishObjFileName = (currentPath + "\\Models\\Fish\\fish.obj");
 	Model fishObjModel(fishObjFileName, false);
 
+	std::string goldFishObjFileName = (currentPath + "\\Models\\BlackGoldfish\\12990_Black_Moor_Goldfish_v1_l2.obj");
+	Model goldFishObjModel(goldFishObjFileName, false);
+
 	float bubbleHeight = 5.0f;
 	// for bubble 1
 	float bubble1Y = -2.0f;
@@ -441,13 +444,8 @@ int main()
 
 		lightingShader.setMat4("projection", pCamera->GetProjectionMatrix());
 		lightingShader.setMat4("view", pCamera->GetViewMatrix());
-
-		// render the model
-		//glm::mat4 model = glm::scale(glm::mat4(1.0), glm::vec3(0.001f));
-		//lightingShader.setMat4("model", model);
-		//objModel.Draw(lightingShader);
 		
-
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CLOWNFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Calculăm unghiul curent bazat pe timp și pe viteza de rotație dorită
 		float angle = glfwGetTime() * angularSpeed;
 
@@ -457,7 +455,7 @@ int main()
 
 		//lightingShader.SetVec3("objectColor", 1.f, 1.0f, 1.f);
 		glm::mat4 fishModelMatrix = glm::mat4(0.03f);
-		fishModelMatrix = glm::translate(fishModelMatrix, glm::vec3(newX, 0.0f, newZ));
+		fishModelMatrix = glm::translate(fishModelMatrix, glm::vec3(newX - 20.0f, -9.0f, newZ - 10.0f));
 		fishModelMatrix = glm::rotate(fishModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // Rotim axa y în jurul axei z
 		
 		// Setăm matricea de model în shader-ul de iluminare
@@ -466,6 +464,28 @@ int main()
 		// Desenăm peștele folosind shader-ul de iluminare
 		fishObjModel.Draw(lightingShader);
 
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GOLDFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		float oscillationSpeed = 1.3f; // Adjust the speed of oscillation as needed
+		float oscillationRange = 10.0f; // Adjust the range of oscillation as needed
+
+		float oscillationOffset = oscillationRange * sin(glfwGetTime() * oscillationSpeed);
+		float goldFishX = 5.0f - oscillationOffset; // Offset the X position to oscillate around 5.0f
+
+		// Calculate the rotation angle based on the movement along the X-axis
+		float rotationAngle = atan2(-2.0f * oscillationSpeed * cos(glfwGetTime() * oscillationSpeed), 1.0f) * 180.0f / glm::pi<float>();
+
+		glm::mat4 goldFishModelMatrix = glm::mat4(0.10f);
+		goldFishModelMatrix = glm::translate(goldFishModelMatrix, glm::vec3(goldFishX, 25.0f, 0.0f));
+		goldFishModelMatrix = glm::rotate(goldFishModelMatrix, glm::radians(rotationAngle), glm::vec3(0.0f, 1.0f, 0.0f)); // Rotate the fish to face its movement
+		goldFishModelMatrix = glm::rotate(goldFishModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // Rotate the fish
+
+		// Set the model matrix in the shader
+		lightingShader.setMat4("model", goldFishModelMatrix);
+
+		// Draw the goldfish
+		goldFishObjModel.Draw(lightingShader);
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ AQUARIUM ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		glm::mat4 aquariumModelMatrix = glm::scale(glm::mat4(15.0), glm::vec3(0.03f));
 		aquariumModelMatrix = glm::translate(aquariumModelMatrix, glm::vec3(0.0f, -5.0f, 0.0f));
 		aquariumModelMatrix = glm::rotate(aquariumModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
