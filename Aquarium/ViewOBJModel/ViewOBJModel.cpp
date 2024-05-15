@@ -272,7 +272,7 @@ int main()
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// glfw window creation
-	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Lab 7", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Aquarium", NULL, NULL);
 	if (window == NULL) {
 		std::cout << "Failed to create GLFW window" << std::endl;
 		glfwTerminate();
@@ -369,7 +369,7 @@ int main()
 	//x y z
 	//y in sus
 	//z in departare
-	glm::vec3 lightPos(0.0f, 3.0f, 1.0f);
+	glm::vec3 lightPos(0.0f, 5.0f, 1.0f);
 
 	wchar_t buffer[MAX_PATH];
 	GetCurrentDirectoryW(MAX_PATH, buffer);
@@ -382,6 +382,8 @@ int main()
 
 	Shader lightingShader((currentPath + "\\Shaders\\PhongLight.vs").c_str(), (currentPath + "\\Shaders\\PhongLight.fs").c_str());
 	Shader lampShader((currentPath + "\\Shaders\\Lamp.vs").c_str(), (currentPath + "\\Shaders\\Lamp.fs").c_str());
+	Shader bubbleShader((currentPath + "\\Shaders\\Bubble.vs").c_str(), (currentPath + "\\Shaders\\Bubble.fs").c_str());
+
 
 	std::string aquarium = (currentPath + "\\Models\\aquarium\\12987_Saltwater_Aquarium_v1_l1.obj");
 	Model aquariumModel(aquarium, false);
@@ -413,7 +415,7 @@ int main()
 
 
 		lightingShader.use();
-		lightingShader.SetVec3("lightColor", 1.0f, 1.0f, 1.0f);
+		lightingShader.SetVec3("lightColor", 0.6f, 0.6f, 1.0f);
 		lightingShader.SetVec3("lightPos", lightPos);
 		lightingShader.SetVec3("viewPos", pCamera->GetPosition());
 
@@ -441,7 +443,7 @@ int main()
 		
 		// Setăm matricea de model în shader-ul de iluminare
 		lightingShader.setMat4("model", fishModelMatrix);
-
+		
 		// Desenăm peștele folosind shader-ul de iluminare
 		fishObjModel.Draw(lightingShader);
 
@@ -453,6 +455,8 @@ int main()
 		aquariumModel.Draw(lightingShader);
 
 		// BUBBLE LOGIC
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		bubbleY += bubbleSpeed * deltaTime;
 
 		if (bubbleY > bubbleHeight) {
@@ -466,10 +470,15 @@ int main()
 		bubbleModelMatrix = glm::scale(bubbleModelMatrix, glm::vec3(0.05f));
 
 		// Set the model matrix in the shader
-		lightingShader.setMat4("model", bubbleModelMatrix);
+		bubbleShader.use();
+		bubbleShader.setMat4("model", bubbleModelMatrix);
+		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
+		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
 
 		// Draw the bubble object
-		bubbleObjModel.Draw(lightingShader);
+		bubbleObjModel.Draw(bubbleShader);
+
+		glDisable(GL_BLEND);
 
 		// also draw the lamp object
 		lampShader.use();
