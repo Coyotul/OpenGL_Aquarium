@@ -390,14 +390,31 @@ int main()
 	Model aquariumModel(aquarium, false);
 
 	std::string bubbleObj = (currentPath + "\\Models\\Bubble\\bubble.obj");
-	Model bubbleObjModel(bubbleObj, false);
+	Model bubble1ObjModel(bubbleObj, false);
+	Model bubble2ObjModel(bubbleObj, false);
+	Model bubble3ObjModel(bubbleObj, false);
+	Model bubble4ObjModel(bubbleObj, false);
 
 	std::string fishObjFileName = (currentPath + "\\Models\\Fish\\fish.obj");
 	Model fishObjModel(fishObjFileName, false);
 
-	float bubbleY = -2.0f;
-	float bubbleSpeed = 1.2f; // Adjust as needed
-	float bubbleHeight = 5.0f; // Adjust as needed
+	float bubbleHeight = 5.0f;
+	// for bubble 1
+	float bubble1Y = -2.0f;
+	float bubble1Speed = 1.2f;
+
+	// for bubble 2
+	float bubble2Y = -2.0f;
+	float bubble2Speed = 0.7f;
+
+	// for bubble 3
+	float bubble3Y = -2.0f;
+	float bubble3Speed = 0.3f;
+
+	// for bubble 4
+	float bubble4Y = -2.0f;
+	float bubble4Speed = 0.9f;
+
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
 		// per-frame time logic
@@ -455,29 +472,95 @@ int main()
 		lightingShader.setMat4("model", aquariumModelMatrix); // Folosim aceeași matrice de model pentru acvariu ca și pentru pește
 		aquariumModel.Draw(lightingShader);
 
-		// BUBBLE LOGIC
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		bubbleY += bubbleSpeed * deltaTime;
 
-		if (bubbleY > bubbleHeight) {
-			bubbleY = -2.0f; // Reset to the bottom
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		bubble1Y += bubble1Speed * deltaTime;
+
+		if (bubble1Y > bubbleHeight) {
+			bubble1Y = -2.0f; // Reset to the bottom
 		}
 
 		// Set the new position of the bubble
-		glm::mat4 bubbleModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, bubbleY, 2.0f));
+		glm::mat4 bubble1ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, bubble1Y, 2.0f));
 
 		// Scale the bubble to make it smaller
-		bubbleModelMatrix = glm::scale(bubbleModelMatrix, glm::vec3(0.05f));
+		bubble1ModelMatrix = glm::scale(bubble1ModelMatrix, glm::vec3(0.05f));
 
 		// Set the model matrix in the shader
 		bubbleShader.use();
-		bubbleShader.setMat4("model", bubbleModelMatrix);
+		bubbleShader.setMat4("model", bubble1ModelMatrix);
 		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
 		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
 
 		// Draw the bubble object
-		bubbleObjModel.Draw(bubbleShader);
+		bubble1ObjModel.Draw(bubbleShader);
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		bubble2Y += bubble2Speed * deltaTime;
+
+		if (bubble2Y > bubbleHeight) {
+			bubble2Y = -2.0f; // Reset to the bottom
+		}
+
+		// Set the new position of the bubble
+		glm::mat4 bubble2ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(5.0f, bubble2Y, 1.0f));
+
+		// Scale the bubble to make it smaller
+		bubble2ModelMatrix = glm::scale(bubble2ModelMatrix, glm::vec3(0.05f));
+
+		// Set the model matrix in the shader
+		bubbleShader.setMat4("model", bubble2ModelMatrix);
+		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
+		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
+
+		// Draw the bubble object
+		bubble2ObjModel.Draw(bubbleShader);
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 3 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		bubble3Y += bubble3Speed * deltaTime;
+
+		if (bubble3Y > bubbleHeight) {
+			bubble3Y = -2.0f; // Reset to the bottom
+		}
+
+		// Set the new position of the bubble
+		glm::mat4 bubble3ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(-5.0f, bubble3Y, -1.0f));
+
+		// Scale the bubble to make it smaller
+		bubble3ModelMatrix = glm::scale(bubble3ModelMatrix, glm::vec3(0.1f));
+
+		// Set the model matrix in the shader
+		bubbleShader.setMat4("model", bubble3ModelMatrix);
+		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
+		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
+
+		// Draw the bubble object
+		bubble3ObjModel.Draw(bubbleShader);
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 4 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		bubble4Y += bubble4Speed * deltaTime;
+
+		if (bubble4Y > bubbleHeight) {
+			bubble4Y = -2.0f; // Reset to the bottom
+		}
+
+		// Set the new position of the bubble
+		glm::mat4 bubble4ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, bubble4Y, -2.0f));
+
+		// Scale the bubble to make it smaller
+		bubble4ModelMatrix = glm::scale(bubble4ModelMatrix, glm::vec3(0.09f));
+
+		// Set the model matrix in the shader
+		bubbleShader.use();
+		bubbleShader.setMat4("model", bubble4ModelMatrix);
+		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
+		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
+
+		// Draw the bubble object
+		bubble4ObjModel.Draw(bubbleShader);
 
 		glDisable(GL_BLEND);
 
