@@ -385,7 +385,6 @@ int main()
 	Shader lampShader((currentPath + "\\Shaders\\Lamp.vs").c_str(), (currentPath + "\\Shaders\\Lamp.fs").c_str());
 	Shader bubbleShader((currentPath + "\\Shaders\\Bubble.vs").c_str(), (currentPath + "\\Shaders\\Bubble.fs").c_str());
 
-
 	std::string aquarium = (currentPath + "\\Models\\aquarium\\12987_Saltwater_Aquarium_v1_l1.obj");
 	Model aquariumModel(aquarium, false);
 
@@ -400,6 +399,9 @@ int main()
 
 	std::string goldFishObjFileName = (currentPath + "\\Models\\BlackGoldfish\\12990_Black_Moor_Goldfish_v1_l2.obj");
 	Model goldFishObjModel(goldFishObjFileName, false);
+
+	std::string blueFishObjFileName = (currentPath + "\\Models\\BlueFish\\13006_Blue_Tang_v1_l3.obj");
+	Model blueFishObjModel(blueFishObjFileName, false);
 
 	std::string diverObjFileName = (currentPath + "\\Models\\DeepSeaDiver\\13018_Aquarium_Deep_Sea_Diver_v1_L1.obj");
 	Model diverObjModel(diverObjFileName, false);
@@ -447,6 +449,41 @@ int main()
 
 		lightingShader.setMat4("projection", pCamera->GetProjectionMatrix());
 		lightingShader.setMat4("view", pCamera->GetViewMatrix());
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BLUEFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// Define circular motion parameters
+		float blueFishRadius = 0.6f;  // Adjust the radius of the circular motion
+		float blueFishAngularSpeed = 0.8f;  // Adjust the angular speed of the circular motion
+
+		// Calculate the angle for circular motion based on time and angular speed
+		float blueFishAngle = glfwGetTime() * blueFishAngularSpeed;
+
+		// Calculate the new position of the bluefish based on circular motion
+		float blueFishNewX = blueFishRadius * cos(blueFishAngle) + 5.0f;
+		float blueFishNewZ = blueFishRadius * sin(blueFishAngle);
+
+		// Calculate the angle between the bluefish and the center of the circle
+		float rotationAngle2 = atan2(0.0f - blueFishNewZ, 5.0f - blueFishNewX);
+
+		// Set the Y position of the bluefish
+		float blueFishY = 0.0f; // Adjust the Y position as needed
+
+		// Set the model matrix for the bluefish
+		glm::mat4 blueFishModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(blueFishNewX, blueFishY, blueFishNewZ));
+
+		// Rotate the bluefish to face the center of the circle
+		blueFishModelMatrix = glm::rotate(blueFishModelMatrix, rotationAngle2, glm::vec3(0.0f, 1.0f, 0.0f));
+		blueFishModelMatrix = glm::rotate(blueFishModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+		// Scale the bluefish if needed
+		blueFishModelMatrix = glm::scale(blueFishModelMatrix, glm::vec3(0.1f));
+
+		// Set the model matrix in the shader
+		lightingShader.setMat4("model", blueFishModelMatrix);
+
+		// Draw the bluefish
+		blueFishObjModel.Draw(lightingShader);
+
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DIVER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Calculate the position of the diver
