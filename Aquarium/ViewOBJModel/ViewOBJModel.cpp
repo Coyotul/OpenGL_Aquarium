@@ -385,7 +385,7 @@ int main()
 	Shader lampShader((currentPath + "\\Shaders\\Lamp.vs").c_str(), (currentPath + "\\Shaders\\Lamp.fs").c_str());
 	Shader bubbleShader((currentPath + "\\Shaders\\Bubble.vs").c_str(), (currentPath + "\\Shaders\\Bubble.fs").c_str());
 
-	std::string aquarium = (currentPath + "\\Models\\aquarium\\12987_Saltwater_Aquarium_v1_l1.obj");
+	std::string aquarium = (currentPath + "\\Models\\aquarium\\acvariuBun.obj");
 	Model aquariumModel(aquarium, false);
 
 	std::string bubbleObj = (currentPath + "\\Models\\Bubble\\bubble.obj");
@@ -406,6 +406,9 @@ int main()
 
 	std::string diverObjFileName = (currentPath + "\\Models\\DeepSeaDiver\\13018_Aquarium_Deep_Sea_Diver_v1_L1.obj");
 	Model diverObjModel(diverObjFileName, false);
+
+	std::string waterFn = (currentPath + "\\Models\\water\\water.obj");
+	Model waterModel(waterFn, false);
 
 	float bubbleHeight = 5.0f;
 	// for bubble 1
@@ -454,6 +457,8 @@ int main()
 
 		lightingShader.setMat4("projection", pCamera->GetProjectionMatrix());
 		lightingShader.setMat4("view", pCamera->GetViewMatrix());
+
+		waterModel.Draw(bubbleShader);
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BLUEFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Define circular motion parameters
