@@ -27,8 +27,8 @@
 #pragma comment (lib, "OpenGL32.lib")
 
 // settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 1400;
+const unsigned int SCR_HEIGHT = 1000;
 
 enum ECameraMovementType
 {
@@ -180,7 +180,7 @@ public:
 			FoVy = 90.0f;
 	}
 
-private:
+public:
 	void ProcessMouseMovement(float xOffset, float yOffset, bool constrainPitch = true)
 	{
 		yaw += xOffset;
@@ -284,6 +284,7 @@ int main()
 	glfwSetCursorPosCallback(window, mouse_callback);
 	glfwSetScrollCallback(window, scroll_callback);
 	glfwSetKeyCallback(window, key_callback);
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	// tell GLFW to capture our mouse
 	//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -369,7 +370,7 @@ int main()
 	//x y z
 	//y in sus
 	//z in departare
-	glm::vec3 lightPos(0.0f, 5.0f, 1.0f);
+	glm::vec3 lightPos(0.0f, 5.2f, 1.0f);
 
 	wchar_t buffer[MAX_PATH];
 	GetCurrentDirectoryW(MAX_PATH, buffer);
@@ -545,8 +546,25 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 {
-	pCamera->MouseControl((float)xpos, (float)ypos);
+    int width, height;
+    glfwGetWindowSize(window, &width, &height);
+
+    // Calculate the center of the window
+    float windowCenterX = width / 2.0f;
+    float windowCenterY = height / 2.0f;
+
+    // Calculate the offset from the center to the cursor position
+    float xOffset = xpos - windowCenterX;
+    float yOffset = windowCenterY - ypos; // Invert the yOffset
+
+    // Set the cursor position back to the center
+    glfwSetCursorPos(window, windowCenterX, windowCenterY);
+
+    // Adjust camera rotation based on cursor offset
+    float sensitivity = 0.1f;
+    pCamera->ProcessMouseMovement(xOffset * sensitivity, yOffset * sensitivity);
 }
+
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yOffset)
 {
