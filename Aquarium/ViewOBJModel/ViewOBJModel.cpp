@@ -407,7 +407,7 @@ int main()
 	std::string diverObjFileName = (currentPath + "\\Models\\DeepSeaDiver\\13018_Aquarium_Deep_Sea_Diver_v1_L1.obj");
 	Model diverObjModel(diverObjFileName, false);
 
-	std::string waterFn = (currentPath + "\\Models\\water\\water.obj");
+	std::string waterFn = (currentPath + "\\Models\\water\\face.obj");
 	Model waterModel(waterFn, false);
 
 	float bubbleHeight = 5.0f;
@@ -458,7 +458,8 @@ int main()
 		lightingShader.setMat4("projection", pCamera->GetProjectionMatrix());
 		lightingShader.setMat4("view", pCamera->GetViewMatrix());
 
-		waterModel.Draw(bubbleShader);
+		
+		
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BLUEFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Define circular motion parameters
@@ -568,6 +569,8 @@ int main()
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+
+		
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		bubble1Y += bubble1Speed * deltaTime;
 
@@ -675,6 +678,31 @@ int main()
 
 		// Draw the bubble object
 		bubble5ObjModel.Draw(bubbleShader);
+
+		//WATER MODEL
+		glm::mat4 waterMatrix = glm::mat4(1.0f);
+
+		// Translate the water object
+		waterMatrix = glm::translate(waterMatrix, glm::vec3(-0.1f, -2.0f, -2.5f));
+
+		// Rotate the water object
+		// For example, rotating 45 degrees around the y-axis
+		float angleWater = glm::radians(90.0f); // Convert degrees to radians
+		waterMatrix = glm::rotate(waterMatrix, angleWater, glm::vec3(-0.5f, 0.0f, 0.0f));
+
+		// Scale the water object
+		waterMatrix = glm::scale(waterMatrix, glm::vec3(0.45f));
+
+
+		// Set the model matrix in the shader
+		bubbleShader.use();
+		bubbleShader.setMat4("model", waterMatrix);
+		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
+		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
+
+		// Draw the water object
+		waterModel.Draw(bubbleShader);
+		
 
 		glDisable(GL_BLEND);
 
