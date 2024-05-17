@@ -532,7 +532,7 @@ int main()
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GOLDFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		float oscillationSpeed = 1.3f; // Adjust the speed of oscillation as needed
-		float oscillationRange = 10.0f; // Adjust the range of oscillation as needed
+		float oscillationRange = 20.0f; // Adjust the range of oscillation as needed
 
 		float oscillationOffset = oscillationRange * sin(glfwGetTime() * oscillationSpeed);
 		float goldFishX = 5.0f - oscillationOffset; // Offset the X position to oscillate around 5.0f
@@ -540,7 +540,7 @@ int main()
 		// Calculate the rotation angle based on the movement along the X-axis
 		float rotationAngle = atan2(-2.0f * oscillationSpeed * cos(glfwGetTime() * oscillationSpeed), 1.0f) * 180.0f / glm::pi<float>();
 
-		glm::mat4 goldFishModelMatrix = glm::mat4(0.10f);
+		glm::mat4 goldFishModelMatrix = glm::mat4(0.15f);
 		goldFishModelMatrix = glm::translate(goldFishModelMatrix, glm::vec3(goldFishX, 25.0f, 0.0f));
 		goldFishModelMatrix = glm::rotate(goldFishModelMatrix, glm::radians(rotationAngle), glm::vec3(0.0f, 1.0f, 0.0f)); // Rotate the fish to face its movement
 		goldFishModelMatrix = glm::rotate(goldFishModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // Rotate the fish
