@@ -407,9 +407,13 @@ int main()
 	std::string diverObjFileName = (currentPath + "\\Models\\DeepSeaDiver\\13018_Aquarium_Deep_Sea_Diver_v1_L1.obj");
 	Model diverObjModel(diverObjFileName, false);
 
-	std::string firstAquariumWallFn = (currentPath + "\\Models\\water\\face.obj");
-	Model firstAquariumWall(firstAquariumWallFn, false);
-	Model secondAquariumWall(firstAquariumWallFn, false);
+	std::string AquariumWallFn = (currentPath + "\\Models\\aquariumFaces\\face.obj");
+	Model firstAquariumWall(AquariumWallFn, false);
+	Model secondAquariumWall(AquariumWallFn, false);
+
+	std::string secondAquariumWallFn = (currentPath + "\\Models\\aquariumFaces\\secondFace.obj");
+	Model firstSmallAquariumWall(secondAquariumWallFn, false);
+	Model secondSmallAquariumWall(secondAquariumWallFn, false);
 
 	float bubbleHeight = 5.0f;
 	// for bubble 1
@@ -684,7 +688,7 @@ int main()
 		glm::mat4 firstWallMatrix = glm::mat4(1.0f);
 
 		// Translate the wall object
-		firstWallMatrix = glm::translate(firstWallMatrix, glm::vec3(-0.1f, -2.0f, -2.5f));
+		firstWallMatrix = glm::translate(firstWallMatrix, glm::vec3(-0.01f, -2.2f, -2.5f));
 
 		// Rotate the wall object
 		float angleWater = glm::radians(90.0f); // Convert degrees to radians
@@ -722,6 +726,28 @@ int main()
 
 		// Draw the water object
 		firstAquariumWall.Draw(bubbleShader);
+
+		//FIRST SMALL AQUARIUM WALL MODEL
+		glm::mat4 firstSmallWallMatrix = glm::mat4(1.0f);
+
+		// Translate the wall object
+		firstSmallWallMatrix = glm::translate(firstSmallWallMatrix, glm::vec3(-0.1f, -2.2f, -0.001f));
+
+		// Rotate the wall object
+		//float angleWater = glm::radians(90.0f); // Convert degrees to radians
+		firstSmallWallMatrix = glm::rotate(firstSmallWallMatrix, angleWater, glm::vec3(-0.5f, 0.0f, 0.0f));
+
+		// Scale the water object
+		firstSmallWallMatrix = glm::scale(firstSmallWallMatrix, glm::vec3(0.45f));
+
+		// Set the model matrix in the shader
+		bubbleShader.use();
+		bubbleShader.setMat4("model", firstSmallWallMatrix);
+		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
+		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
+
+		// Draw the water object
+		firstSmallAquariumWall.Draw(bubbleShader);
 
 		glDisable(GL_BLEND);
 
