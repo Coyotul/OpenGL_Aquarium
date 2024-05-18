@@ -717,7 +717,6 @@ int main()
 		// Scale the water object
 		secondWallMatrix = glm::scale(secondWallMatrix, glm::vec3(0.45f));
 
-
 		// Set the model matrix in the shader
 		bubbleShader.use();
 		bubbleShader.setMat4("model", secondWallMatrix);
@@ -748,6 +747,30 @@ int main()
 
 		// Draw the water object
 		firstSmallAquariumWall.Draw(bubbleShader);
+
+
+		//SECOND SMALL AQUARIUM WALL MODEL
+		glm::mat4 secondSmallWallMatrix = glm::mat4(1.0f);
+
+		// Translate the wall object
+		secondSmallWallMatrix = glm::translate(secondSmallWallMatrix, glm::vec3(-14.05f, -2.2f, -0.001f));
+
+		// Rotate the wall object
+		//float angleWater = glm::radians(90.0f); // Convert degrees to radians
+		secondSmallWallMatrix = glm::rotate(secondSmallWallMatrix, angleWater, glm::vec3(-0.5f, 0.0f, 0.0f));
+
+		// Scale the water object
+		secondSmallWallMatrix = glm::scale(secondSmallWallMatrix, glm::vec3(0.45f));
+
+		// Set the model matrix in the shader
+		bubbleShader.use();
+		bubbleShader.setMat4("model", secondSmallWallMatrix);
+		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
+		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
+
+		// Draw the water object
+		secondSmallAquariumWall.Draw(bubbleShader);
+
 
 		glDisable(GL_BLEND);
 
