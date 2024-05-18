@@ -416,6 +416,9 @@ int main()
 	std::string reefFishObjFileName = (currentPath + "\\Models\\ReefFish\\13007_Blue-Green_Reef_Chromis_v2_l3.obj");
 	Model reefFishObjModel(reefFishObjFileName, false);
 
+	std::string fairyFishObjFileName = (currentPath + "\\Models\\FairyFish\\13013_Red_Head_Solon_Fairy_Wrasse_v1_l3.obj");
+	Model fairyFishObjModel(fairyFishObjFileName, false);
+
 	std::string diverObjFileName = (currentPath + "\\Models\\DeepSeaDiver\\13018_Aquarium_Deep_Sea_Diver_v1_L1.obj");
 	Model diverObjModel(diverObjFileName, false);
 
@@ -498,6 +501,26 @@ int main()
 		lightingShader.setMat4("projection", pCamera->GetProjectionMatrix());
 		lightingShader.setMat4("view", pCamera->GetViewMatrix());
 		
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FAIRYFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// Calculăm unghiul curent bazat pe timp și pe viteza de rotație dorită
+		float fairyangle = glfwGetTime() * angularSpeed;
+
+		// Calculăm noile coordonate x și z ale poziției peștelui pe baza unghiului și razei
+		float fairynewX = radius * cos(fairyangle);
+		float fairynewZ = radius * sin(fairyangle);
+
+		//lightingShader.SetVec3("objectColor", 1.f, 1.0f, 1.f);
+		glm::mat4 fairyfishModelMatrix = glm::mat4(0.03f);
+		fairyfishModelMatrix = glm::scale(fairyfishModelMatrix, glm::vec3(3.0f));
+		fairyfishModelMatrix = glm::translate(fairyfishModelMatrix, glm::vec3(fairynewX - 20.0f, 40.0f, fairynewZ - 10.0f));
+		fairyfishModelMatrix = glm::rotate(fairyfishModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // Rotim axa y în jurul axei z
+
+		// Setăm matricea de model în shader-ul de iluminare
+		lightingShader.setMat4("model", fairyfishModelMatrix);
+
+		// Desenăm peștele folosind shader-ul de iluminare
+		fairyFishObjModel.Draw(lightingShader);
+
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ REEFFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Define oscillation parameters
 		float reefFishOscillationSpeed = 1.0f; // Adjust the speed of oscillation as needed
@@ -607,8 +630,8 @@ int main()
 		fishObjModel.Draw(lightingShader);
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GOLDFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		float oscillationSpeed = 1.3f; // Adjust the speed of oscillation as needed
-		float oscillationRange = 10.0f; // Adjust the range of oscillation as needed
+		float oscillationSpeed = 1.0f; // Adjust the speed of oscillation as needed
+		float oscillationRange = 15.0f; // Adjust the range of oscillation as needed
 
 		float oscillationOffset = oscillationRange * sin(glfwGetTime() * oscillationSpeed);
 		float goldFishX = 5.0f - oscillationOffset; // Offset the X position to oscillate around 5.0f
@@ -617,7 +640,8 @@ int main()
 		float rotationAngle = atan2(-2.0f * oscillationSpeed * cos(glfwGetTime() * oscillationSpeed), 1.0f) * 180.0f / glm::pi<float>();
 
 		glm::mat4 goldFishModelMatrix = glm::mat4(0.10f);
-		goldFishModelMatrix = glm::translate(goldFishModelMatrix, glm::vec3(goldFishX, 25.0f, 0.0f));
+		goldFishModelMatrix = glm::scale(goldFishModelMatrix, glm::vec3(1.0f));
+		goldFishModelMatrix = glm::translate(goldFishModelMatrix, glm::vec3(goldFishX, 30.0f, 0.0f));
 		goldFishModelMatrix = glm::rotate(goldFishModelMatrix, glm::radians(rotationAngle), glm::vec3(0.0f, 1.0f, 0.0f)); // Rotate the fish to face its movement
 		goldFishModelMatrix = glm::rotate(goldFishModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // Rotate the fish
 
