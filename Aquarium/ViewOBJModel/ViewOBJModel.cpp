@@ -413,6 +413,9 @@ int main()
 	std::string blueFishObjFileName = (currentPath + "\\Models\\BlueFish\\13006_Blue_Tang_v1_l3.obj");
 	Model blueFishObjModel(blueFishObjFileName, false);
 
+	std::string reefFishObjFileName = (currentPath + "\\Models\\ReefFish\\13007_Blue-Green_Reef_Chromis_v2_l3.obj");
+	Model reefFishObjModel(reefFishObjFileName, false);
+
 	std::string diverObjFileName = (currentPath + "\\Models\\DeepSeaDiver\\13018_Aquarium_Deep_Sea_Diver_v1_L1.obj");
 	Model diverObjModel(diverObjFileName, false);
 
@@ -494,6 +497,39 @@ int main()
 
 		lightingShader.setMat4("projection", pCamera->GetProjectionMatrix());
 		lightingShader.setMat4("view", pCamera->GetViewMatrix());
+		
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ REEFFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// Define oscillation parameters
+		float reefFishOscillationSpeed = 1.0f; // Adjust the speed of oscillation as needed
+		float reefFishOscillationRange = 1.0f; // Adjust the range of oscillation as needed
+		float reefFishVerticalSpeed = 0.5f; // Adjust the speed of vertical movement as needed
+		float reefFishVerticalRange = 2.0f; // Adjust the range of vertical movement as needed
+
+		// Calculate oscillation and vertical movement
+		float reefFishOscillationOffset = reefFishOscillationRange * sin(glfwGetTime() * reefFishOscillationSpeed);
+		float reefFishVerticalOffset = reefFishVerticalRange * sin(glfwGetTime() * reefFishVerticalSpeed);
+
+		// Calculate new position of the reef fish
+		float reefFishNewX = -5.0f + reefFishOscillationOffset;
+		float reefFishNewY = 4.0f + reefFishVerticalOffset;
+		float reefFishNewZ = 0.0f;
+
+		// Calculate rotation angle based on movement along the X-axis
+		float reefFishRotationAngle = atan2(0.0f - reefFishNewZ, -5.0f + reefFishNewX);
+
+		// Set the model matrix for the reef fish
+		glm::mat4 reefFishModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(reefFishNewX, reefFishNewY - 2.0f, reefFishNewZ));
+		reefFishModelMatrix = glm::rotate(reefFishModelMatrix, reefFishRotationAngle, glm::vec3(0.0f, 1.0f, 0.0f));
+		reefFishModelMatrix = glm::rotate(reefFishModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		reefFishModelMatrix = glm::scale(reefFishModelMatrix, glm::vec3(0.2f));
+
+		// Set the model matrix in the shader
+		lightingShader.setMat4("model", reefFishModelMatrix);
+
+		// Draw the reef fish
+		reefFishObjModel.Draw(lightingShader);
+
+
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BLUEFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Define circular motion parameters
