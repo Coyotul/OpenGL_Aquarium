@@ -507,7 +507,7 @@ int main()
 		lightPos.z = radius * sin(glfwGetTime() * angularSpeed);
 
 		lightingShader.use();
-		lightingShader.SetVec3("lightColor", 0.6f, 0.6f, 1.0f);
+		lightingShader.SetVec3("lightColor", 0.7f, 0.7f, 1.0f);
 		lightingShader.SetVec3("lightPos", lightPos);
 		lightingShader.SetVec3("viewPos", pCamera->GetPosition());
 
