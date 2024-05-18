@@ -385,7 +385,7 @@ int main()
 	Shader lampShader((currentPath + "\\Shaders\\Lamp.vs").c_str(), (currentPath + "\\Shaders\\Lamp.fs").c_str());
 	Shader bubbleShader((currentPath + "\\Shaders\\Bubble.vs").c_str(), (currentPath + "\\Shaders\\Bubble.fs").c_str());
 
-	std::string aquarium = (currentPath + "\\Models\\aquarium\\12987_Saltwater_Aquarium_v1_l1.obj");
+	std::string aquarium = (currentPath + "\\Models\\aquarium\\acvariuBun.obj");
 	Model aquariumModel(aquarium, false);
 
 	std::string bubbleObj = (currentPath + "\\Models\\Bubble\\bubble.obj");
@@ -394,21 +394,9 @@ int main()
 	Model bubble3ObjModel(bubbleObj, false);
 	Model bubble4ObjModel(bubbleObj, false);
 	Model bubble5ObjModel(bubbleObj, false);
-	Model bubble6ObjModel(bubbleObj, false);
-	Model bubble7ObjModel(bubbleObj, false);
-	Model bubble8ObjModel(bubbleObj, false);
-	Model bubble9ObjModel(bubbleObj, false);
-	Model bubble10ObjModel(bubbleObj, false);
-	Model bubble11ObjModel(bubbleObj, false);
-	Model bubble12ObjModel(bubbleObj, false);
-	Model bubble13ObjModel(bubbleObj, false);
-	Model bubble14ObjModel(bubbleObj, false);
 
 	std::string fishObjFileName = (currentPath + "\\Models\\Fish\\fish.obj");
 	Model fishObjModel(fishObjFileName, false);
-
-	std::string sharkObjFileName = (currentPath + "\\Models\\Shark\\12960_Shark_v2_L1.obj");
-	Model sharkObjModel(sharkObjFileName, false);
 
 	std::string goldFishObjFileName = (currentPath + "\\Models\\BlackGoldfish\\12990_Black_Moor_Goldfish_v1_l2.obj");
 	Model goldFishObjModel(goldFishObjFileName, false);
@@ -416,14 +404,16 @@ int main()
 	std::string blueFishObjFileName = (currentPath + "\\Models\\BlueFish\\13006_Blue_Tang_v1_l3.obj");
 	Model blueFishObjModel(blueFishObjFileName, false);
 
-	std::string reefFishObjFileName = (currentPath + "\\Models\\ReefFish\\13007_Blue-Green_Reef_Chromis_v2_l3.obj");
-	Model reefFishObjModel(reefFishObjFileName, false);
-
-	std::string fairyFishObjFileName = (currentPath + "\\Models\\FairyFish\\13013_Red_Head_Solon_Fairy_Wrasse_v1_l3.obj");
-	Model fairyFishObjModel(fairyFishObjFileName, false);
-
 	std::string diverObjFileName = (currentPath + "\\Models\\DeepSeaDiver\\13018_Aquarium_Deep_Sea_Diver_v1_L1.obj");
 	Model diverObjModel(diverObjFileName, false);
+
+	std::string AquariumWallFn = (currentPath + "\\Models\\aquariumFaces\\face.obj");
+	Model firstAquariumWall(AquariumWallFn, false);
+	Model secondAquariumWall(AquariumWallFn, false);
+
+	std::string secondAquariumWallFn = (currentPath + "\\Models\\aquariumFaces\\secondFace.obj");
+	Model firstSmallAquariumWall(secondAquariumWallFn, false);
+	Model secondSmallAquariumWall(secondAquariumWallFn, false);
 
 	float bubbleHeight = 5.0f;
 	// for bubble 1
@@ -436,47 +426,16 @@ int main()
 
 	// for bubble 3
 	float bubble3Y = -2.0f;
-	float bubble3Speed = 0.5f;
+	float bubble3Speed = 0.3f;
 
 	// for bubble 4
 	float bubble4Y = -2.0f;
 	float bubble4Speed = 0.9f;
-
+	
 	// for bubble 5
-	float bubble5Y = -2.0f;
-	float bubble5Speed = 0.8f;
+	float bubble5Y = 0.0f;
+	float bubble5Speed = 1.0f;
 
-	// for bubble 6
-	float bubble6Y = -2.0f;
-	float bubble6Speed = 0.9f;
-
-	// for bubble 7
-	float bubble7Y = -2.0f;
-	float bubble7Speed = 1.9f;
-
-	// for bubble 8
-	float bubble8Y = -2.0f;
-	float bubble8Speed = 1.0f;
-
-	// for bubble 9
-	float bubble9Y = -2.0f;
-	float bubble9Speed = 0.5f;
-
-	// for bubble 10
-	float bubble10Y = -2.0f;
-	float bubble10Speed = 1.2f;
-
-	float bubble11Y = -2.0f;
-	float bubble11Speed = 0.9f;
-
-	float bubble12Y = -2.0f;
-	float bubble12Speed = 1.6f;
-
-	float bubble13Y = -2.0f;
-	float bubble13Speed = 0.6f;
-
-	float bubble14Y = -2.0f;
-	float bubble14Speed = 0.8f;
 	// render loop
 	while (!glfwWindowShouldClose(window)) {
 		// per-frame time logic
@@ -503,79 +462,9 @@ int main()
 
 		lightingShader.setMat4("projection", pCamera->GetProjectionMatrix());
 		lightingShader.setMat4("view", pCamera->GetViewMatrix());
+
 		
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SHARK ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		// Calculăm unghiul curent bazat pe timp și pe viteza de rotație dorită
-		float sharkangle = glfwGetTime() * angularSpeed;
-
-		// Calculăm noile coordonate x și z ale poziției peștelui pe baza unghiului și razei
-		float sharknewX = radius * cos(sharkangle);
-		float sharknewZ = radius * sin(sharkangle);
-
-		//lightingShader.SetVec3("objectColor", 1.f, 1.0f, 1.f);
-		glm::mat4 sharkModelMatrix = glm::mat4(0.03f);
-		sharkModelMatrix = glm::scale(sharkModelMatrix, glm::vec3(0.5f));
-		sharkModelMatrix = glm::translate(sharkModelMatrix, glm::vec3(sharknewX + 250.0f, 290.0f, sharknewZ - 10.0f));
-		sharkModelMatrix = glm::rotate(sharkModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // Rotim axa y în jurul axei z
-
-		// Setăm matricea de model în shader-ul de iluminare
-		lightingShader.setMat4("model", sharkModelMatrix);
-
-		// Desenăm peștele folosind shader-ul de iluminare
-		sharkObjModel.Draw(lightingShader);
-
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FAIRYFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		// Calculăm unghiul curent bazat pe timp și pe viteza de rotație dorită
-		float fairyangle = glfwGetTime() * angularSpeed;
-
-		// Calculăm noile coordonate x și z ale poziției peștelui pe baza unghiului și razei
-		float fairynewX = radius * cos(fairyangle);
-		float fairynewZ = radius * sin(fairyangle);
-
-		//lightingShader.SetVec3("objectColor", 1.f, 1.0f, 1.f);
-		glm::mat4 fairyfishModelMatrix = glm::mat4(0.03f);
-		fairyfishModelMatrix = glm::scale(fairyfishModelMatrix, glm::vec3(3.0f));
-		fairyfishModelMatrix = glm::translate(fairyfishModelMatrix, glm::vec3(fairynewX - 20.0f, 40.0f, fairynewZ - 10.0f));
-		fairyfishModelMatrix = glm::rotate(fairyfishModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // Rotim axa y în jurul axei z
-
-		// Setăm matricea de model în shader-ul de iluminare
-		lightingShader.setMat4("model", fairyfishModelMatrix);
-
-		// Desenăm peștele folosind shader-ul de iluminare
-		fairyFishObjModel.Draw(lightingShader);
-
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ REEFFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		// Define oscillation parameters
-		float reefFishOscillationSpeed = 1.0f; // Adjust the speed of oscillation as needed
-		float reefFishOscillationRange = 1.0f; // Adjust the range of oscillation as needed
-		float reefFishVerticalSpeed = 0.5f; // Adjust the speed of vertical movement as needed
-		float reefFishVerticalRange = 2.0f; // Adjust the range of vertical movement as needed
-
-		// Calculate oscillation and vertical movement
-		float reefFishOscillationOffset = reefFishOscillationRange * sin(glfwGetTime() * reefFishOscillationSpeed);
-		float reefFishVerticalOffset = reefFishVerticalRange * sin(glfwGetTime() * reefFishVerticalSpeed);
-
-		// Calculate new position of the reef fish
-		float reefFishNewX = -5.0f + reefFishOscillationOffset;
-		float reefFishNewY = 4.0f + reefFishVerticalOffset;
-		float reefFishNewZ = 0.0f;
-
-		// Calculate rotation angle based on movement along the X-axis
-		float reefFishRotationAngle = atan2(0.0f - reefFishNewZ, -5.0f + reefFishNewX);
-
-		// Set the model matrix for the reef fish
-		glm::mat4 reefFishModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(reefFishNewX, reefFishNewY - 2.0f, reefFishNewZ));
-		reefFishModelMatrix = glm::rotate(reefFishModelMatrix, reefFishRotationAngle, glm::vec3(0.0f, 1.0f, 0.0f));
-		reefFishModelMatrix = glm::rotate(reefFishModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		reefFishModelMatrix = glm::scale(reefFishModelMatrix, glm::vec3(0.2f));
-
-		// Set the model matrix in the shader
-		lightingShader.setMat4("model", reefFishModelMatrix);
-
-		// Draw the reef fish
-		reefFishObjModel.Draw(lightingShader);
-
-
+		
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BLUEFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Define circular motion parameters
@@ -653,8 +542,8 @@ int main()
 		fishObjModel.Draw(lightingShader);
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GOLDFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		float oscillationSpeed = 1.0f; // Adjust the speed of oscillation as needed
-		float oscillationRange = 15.0f; // Adjust the range of oscillation as needed
+		float oscillationSpeed = 1.3f; // Adjust the speed of oscillation as needed
+		float oscillationRange = 10.0f; // Adjust the range of oscillation as needed
 
 		float oscillationOffset = oscillationRange * sin(glfwGetTime() * oscillationSpeed);
 		float goldFishX = 5.0f - oscillationOffset; // Offset the X position to oscillate around 5.0f
@@ -663,8 +552,7 @@ int main()
 		float rotationAngle = atan2(-2.0f * oscillationSpeed * cos(glfwGetTime() * oscillationSpeed), 1.0f) * 180.0f / glm::pi<float>();
 
 		glm::mat4 goldFishModelMatrix = glm::mat4(0.10f);
-		goldFishModelMatrix = glm::scale(goldFishModelMatrix, glm::vec3(1.0f));
-		goldFishModelMatrix = glm::translate(goldFishModelMatrix, glm::vec3(goldFishX, 30.0f, 0.0f));
+		goldFishModelMatrix = glm::translate(goldFishModelMatrix, glm::vec3(goldFishX, 25.0f, 0.0f));
 		goldFishModelMatrix = glm::rotate(goldFishModelMatrix, glm::radians(rotationAngle), glm::vec3(0.0f, 1.0f, 0.0f)); // Rotate the fish to face its movement
 		goldFishModelMatrix = glm::rotate(goldFishModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // Rotate the fish
 
@@ -686,6 +574,8 @@ int main()
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+
+		
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 1 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		bubble1Y += bubble1Speed * deltaTime;
 
@@ -764,6 +654,7 @@ int main()
 		bubble4ModelMatrix = glm::scale(bubble4ModelMatrix, glm::vec3(0.09f));
 
 		// Set the model matrix in the shader
+		bubbleShader.use();
 		bubbleShader.setMat4("model", bubble4ModelMatrix);
 		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
 		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
@@ -775,16 +666,17 @@ int main()
 		bubble5Y += bubble5Speed * deltaTime;
 
 		if (bubble5Y > bubbleHeight) {
-			bubble5Y = -2.0f; // Reset to the bottom
+			bubble5Y = 0.0f; // Reset to the bottom
 		}
 
 		// Set the new position of the bubble
 		glm::mat4 bubble5ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(3.0f, bubble5Y, 0.0f));
 
 		// Scale the bubble to make it smaller
-		bubble5ModelMatrix = glm::scale(bubble5ModelMatrix, glm::vec3(0.08f));
+		bubble5ModelMatrix = glm::scale(bubble5ModelMatrix, glm::vec3(0.04f));
 
 		// Set the model matrix in the shader
+		bubbleShader.use();
 		bubbleShader.setMat4("model", bubble5ModelMatrix);
 		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
 		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
@@ -792,194 +684,92 @@ int main()
 		// Draw the bubble object
 		bubble5ObjModel.Draw(bubbleShader);
 
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 6 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		bubble6Y += bubble6Speed * deltaTime;
+		//FIRST AQUARIUM WALL MODEL
+		glm::mat4 firstWallMatrix = glm::mat4(1.0f);
 
-		if (bubble6Y > bubbleHeight) {
-			bubble6Y = -2.0f; // Reset to the bottom
-		}
+		// Translate the wall object
+		firstWallMatrix = glm::translate(firstWallMatrix, glm::vec3(-0.01f, -2.2f, -2.5f));
 
-		// Set the new position of the bubble
-		glm::mat4 bubble6ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, bubble6Y, -1.0f));
+		// Rotate the wall object
+		float angleWater = glm::radians(90.0f); // Convert degrees to radians
+		firstWallMatrix = glm::rotate(firstWallMatrix, angleWater, glm::vec3(-0.5f, 0.0f, 0.0f));
 
-		// Scale the bubble to make it smaller
-		bubble6ModelMatrix = glm::scale(bubble6ModelMatrix, glm::vec3(0.05f));
+		// Scale the water object
+		firstWallMatrix = glm::scale(firstWallMatrix, glm::vec3(0.45f));
 
 		// Set the model matrix in the shader
-		bubbleShader.setMat4("model", bubble6ModelMatrix);
+		bubbleShader.use();
+		bubbleShader.setMat4("model", firstWallMatrix);
 		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
 		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
 
-		// Draw the bubble object
-		bubble6ObjModel.Draw(bubbleShader);
+		// Draw the water object
+		firstAquariumWall.Draw(bubbleShader);
 
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 7 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		bubble7Y += bubble7Speed * deltaTime;
 
-		if (bubble7Y > bubbleHeight) {
-			bubble7Y = -2.0f; // Reset to the bottom
-		}
+		//SECOND AQUARIUM WALL MODEL
+		glm::mat4 secondWallMatrix = glm::mat4(1.0f);
 
-		// Set the new position of the bubble
-		glm::mat4 bubble7ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(-2.0f, bubble7Y, 1.0f));
+		// Translate the wall object
+		secondWallMatrix = glm::translate(secondWallMatrix, glm::vec3(-0.01f, -2.2f, 2.7f));
+		secondWallMatrix = glm::rotate(secondWallMatrix, angleWater, glm::vec3(-0.5f, 0.0f, 0.0f));
 
-		// Scale the bubble to make it smaller
-		bubble7ModelMatrix = glm::scale(bubble7ModelMatrix, glm::vec3(0.05f));
+		// Scale the water object
+		secondWallMatrix = glm::scale(secondWallMatrix, glm::vec3(0.45f));
 
 		// Set the model matrix in the shader
-		bubbleShader.setMat4("model", bubble7ModelMatrix);
+		bubbleShader.use();
+		bubbleShader.setMat4("model", secondWallMatrix);
 		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
 		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
 
-		// Draw the bubble object
-		bubble7ObjModel.Draw(bubbleShader);
+		// Draw the water object
+		firstAquariumWall.Draw(bubbleShader);
 
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 8 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		bubble8Y += bubble8Speed * deltaTime;
+		//FIRST SMALL AQUARIUM WALL MODEL
+		glm::mat4 firstSmallWallMatrix = glm::mat4(1.0f);
 
-		if (bubble8Y > bubbleHeight) {
-			bubble8Y = -2.0f; // Reset to the bottom
-		}
+		// Translate the wall object
+		firstSmallWallMatrix = glm::translate(firstSmallWallMatrix, glm::vec3(-0.1f, -2.2f, -0.001f));
 
-		// Set the new position of the bubble
-		glm::mat4 bubble8ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(4.0f, bubble8Y, -1.0f));
+		// Rotate the wall object
+		//float angleWater = glm::radians(90.0f); // Convert degrees to radians
+		firstSmallWallMatrix = glm::rotate(firstSmallWallMatrix, angleWater, glm::vec3(-0.5f, 0.0f, 0.0f));
 
-		// Scale the bubble to make it smaller
-		bubble8ModelMatrix = glm::scale(bubble8ModelMatrix, glm::vec3(0.05f));
+		// Scale the water object
+		firstSmallWallMatrix = glm::scale(firstSmallWallMatrix, glm::vec3(0.45f));
 
 		// Set the model matrix in the shader
-		bubbleShader.setMat4("model", bubble8ModelMatrix);
+		bubbleShader.use();
+		bubbleShader.setMat4("model", firstSmallWallMatrix);
 		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
 		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
 
-		// Draw the bubble object
-		bubble8ObjModel.Draw(bubbleShader);
+		// Draw the water object
+		firstSmallAquariumWall.Draw(bubbleShader);
 
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 9 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		bubble9Y += bubble9Speed * deltaTime;
 
-		if (bubble9Y > bubbleHeight) {
-			bubble9Y = -2.0f; // Reset to the bottom
-		}
+		//SECOND SMALL AQUARIUM WALL MODEL
+		glm::mat4 secondSmallWallMatrix = glm::mat4(1.0f);
 
-		// Set the new position of the bubble
-		glm::mat4 bubble9ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(-3.0f, bubble9Y, 1.0f));
+		// Translate the wall object
+		secondSmallWallMatrix = glm::translate(secondSmallWallMatrix, glm::vec3(-14.05f, -2.2f, -0.001f));
 
-		// Scale the bubble to make it smaller
-		bubble9ModelMatrix = glm::scale(bubble9ModelMatrix, glm::vec3(0.05f));
+		// Rotate the wall object
+		//float angleWater = glm::radians(90.0f); // Convert degrees to radians
+		secondSmallWallMatrix = glm::rotate(secondSmallWallMatrix, angleWater, glm::vec3(-0.5f, 0.0f, 0.0f));
+
+		// Scale the water object
+		secondSmallWallMatrix = glm::scale(secondSmallWallMatrix, glm::vec3(0.45f));
 
 		// Set the model matrix in the shader
-		bubbleShader.setMat4("model", bubble9ModelMatrix);
+		bubbleShader.use();
+		bubbleShader.setMat4("model", secondSmallWallMatrix);
 		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
 		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
 
-		// Draw the bubble object
-		bubble9ObjModel.Draw(bubbleShader);
-
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 10 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		bubble10Y += bubble10Speed * deltaTime;
-
-		if (bubble10Y > bubbleHeight) {
-			bubble10Y = -2.0f; // Reset to the bottom
-		}
-
-		// Set the new position of the bubble
-		glm::mat4 bubble10ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(6.0f, bubble10Y, 0.0f));
-
-		// Scale the bubble to make it smaller
-		bubble10ModelMatrix = glm::scale(bubble10ModelMatrix, glm::vec3(0.05f));
-
-		// Set the model matrix in the shader
-		bubbleShader.setMat4("model", bubble10ModelMatrix);
-		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
-		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
-
-		// Draw the bubble object
-		bubble10ObjModel.Draw(bubbleShader);
-
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 11 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		bubble11Y += bubble11Speed * deltaTime;
-
-		if (bubble11Y > bubbleHeight) {
-			bubble11Y = -2.0f; // Reset to the bottom
-		}
-
-		// Set the new position of the bubble
-		glm::mat4 bubble11ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(-3.0f, bubble11Y, 2.0f));
-
-		// Scale the bubble to make it smaller
-		bubble11ModelMatrix = glm::scale(bubble11ModelMatrix, glm::vec3(0.05f));
-
-		// Set the model matrix in the shader
-		bubbleShader.setMat4("model", bubble11ModelMatrix);
-		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
-		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
-
-		// Draw the bubble object
-		bubble11ObjModel.Draw(bubbleShader);
-
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 12 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		bubble12Y += bubble12Speed * deltaTime;
-
-		if (bubble12Y > bubbleHeight) {
-			bubble12Y = -2.0f; // Reset to the bottom
-		}
-
-		// Set the new position of the bubble
-		glm::mat4 bubble12ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(2.0f, bubble12Y, -2.0f));
-
-		// Scale the bubble to make it smaller
-		bubble12ModelMatrix = glm::scale(bubble12ModelMatrix, glm::vec3(0.05f));
-
-		// Set the model matrix in the shader
-		bubbleShader.setMat4("model", bubble12ModelMatrix);
-		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
-		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
-
-		// Draw the bubble object
-		bubble12ObjModel.Draw(bubbleShader);
-
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 13 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		bubble13Y += bubble13Speed * deltaTime;
-
-		if (bubble13Y > bubbleHeight) {
-			bubble13Y = -2.0f; // Reset to the bottom
-		}
-
-		// Set the new position of the bubble
-		glm::mat4 bubble13ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, bubble13Y, 1.5f));
-
-		// Scale the bubble to make it smaller
-		bubble13ModelMatrix = glm::scale(bubble13ModelMatrix, glm::vec3(0.05f));
-
-		// Set the model matrix in the shader
-		bubbleShader.setMat4("model", bubble13ModelMatrix);
-		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
-		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
-
-		// Draw the bubble object
-		bubble13ObjModel.Draw(bubbleShader);
-
-		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE 14 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		bubble14Y += bubble14Speed * deltaTime;
-
-		if (bubble14Y > bubbleHeight) {
-			bubble14Y = -2.0f; // Reset to the bottom
-		}
-
-		// Set the new position of the bubble
-		glm::mat4 bubble14ModelMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(4.0f, bubble14Y, 2.0f));
-
-		// Scale the bubble to make it smaller
-		bubble14ModelMatrix = glm::scale(bubble14ModelMatrix, glm::vec3(0.05f));
-
-		// Set the model matrix in the shader
-		bubbleShader.setMat4("model", bubble14ModelMatrix);
-		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
-		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
-
-		// Draw the bubble object
-		bubble14ObjModel.Draw(bubbleShader);
+		// Draw the water object
+		secondSmallAquariumWall.Draw(bubbleShader);
 
 
 		glDisable(GL_BLEND);

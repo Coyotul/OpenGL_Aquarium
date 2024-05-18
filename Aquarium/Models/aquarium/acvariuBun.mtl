@@ -1,0 +1,164 @@
+# Blender 4.1.1 MTL File: 'untitled.blend'
+# www.blender.org
+
+newmtl 12987_saltwater_aquarium_glass
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl 12987_saltwater_aquarium_glass_2
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl 12987_saltwater_aquarium_glass_5
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl 12987_saltwater_aquarium_plastic_1
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Ka margini.jpg
+map_Kd margini.jpg
+
+newmtl 12987_saltwater_aquarium_rock_1
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Ka 12987_saltwater_aquarium_rock_1_diff.jpg
+map_Kd 12987_saltwater_aquarium_rock_1_diff.jpg
+
+newmtl 12987_saltwater_aquarium_rock_2
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Ka 12987_saltwater_aquarium_rock_2_diff.jpg
+map_Kd 12987_saltwater_aquarium_rock_2_diff.jpg
+
+newmtl 12987_saltwater_aquarium_rock_3
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Ka 12987_saltwater_aquarium_rock_3_diff.jpg
+map_Kd 12987_saltwater_aquarium_rock_3_diff.jpg
+
+newmtl 12987_saltwater_aquarium_rock_4
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Ka 12987_saltwater_aquarium_rock_4_diff.jpg
+map_Kd 12987_saltwater_aquarium_rock_4_diff.jpg
+
+newmtl 12987_saltwater_aquarium_rock_5
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Ka 12987_saltwater_aquarium_rock_5_diff.jpg
+map_Kd 12987_saltwater_aquarium_rock_5_diff.jpg
+
+newmtl 12987_saltwater_aquarium_rock_6
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Ka 12987_saltwater_aquarium_rock_6_diff.jpg
+map_Kd 12987_saltwater_aquarium_rock_6_diff.jpg
+
+newmtl 12987_saltwater_aquarium_rock_7
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Ka 12987_saltwater_aquarium_rock_7_diff.jpg
+map_Kd 12987_saltwater_aquarium_rock_7_diff.jpg
+
+newmtl 12987_saltwater_aquarium_rubber
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Ka margini.jpg
+map_Kd margini.jpg
+
+newmtl 12987_saltwater_aquarium_sand
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Ka 12987_saltwater_aquarium_sand_diff.jpg
+map_Kd 12987_saltwater_aquarium_sand_diff.jpg
+
+newmtl 12987_saltwater_aquarium_stone
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Ka 12987_saltwater_aquarium_stone_diff.jpg
+map_Kd 12987_saltwater_aquarium_stone_diff.jpg
