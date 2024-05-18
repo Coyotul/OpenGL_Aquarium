@@ -407,8 +407,9 @@ int main()
 	std::string diverObjFileName = (currentPath + "\\Models\\DeepSeaDiver\\13018_Aquarium_Deep_Sea_Diver_v1_L1.obj");
 	Model diverObjModel(diverObjFileName, false);
 
-	std::string waterFn = (currentPath + "\\Models\\water\\face.obj");
-	Model waterModel(waterFn, false);
+	std::string firstAquariumWallFn = (currentPath + "\\Models\\water\\face.obj");
+	Model firstAquariumWall(firstAquariumWallFn, false);
+	Model secondAquariumWall(firstAquariumWallFn, false);
 
 	float bubbleHeight = 5.0f;
 	// for bubble 1
@@ -679,30 +680,48 @@ int main()
 		// Draw the bubble object
 		bubble5ObjModel.Draw(bubbleShader);
 
-		//WATER MODEL
-		glm::mat4 waterMatrix = glm::mat4(1.0f);
+		//FIRST AQUARIUM WALL MODEL
+		glm::mat4 firstWallMatrix = glm::mat4(1.0f);
 
-		// Translate the water object
-		waterMatrix = glm::translate(waterMatrix, glm::vec3(-0.1f, -2.0f, -2.5f));
+		// Translate the wall object
+		firstWallMatrix = glm::translate(firstWallMatrix, glm::vec3(-0.1f, -2.0f, -2.5f));
 
-		// Rotate the water object
-		// For example, rotating 45 degrees around the y-axis
+		// Rotate the wall object
 		float angleWater = glm::radians(90.0f); // Convert degrees to radians
-		waterMatrix = glm::rotate(waterMatrix, angleWater, glm::vec3(-0.5f, 0.0f, 0.0f));
+		firstWallMatrix = glm::rotate(firstWallMatrix, angleWater, glm::vec3(-0.5f, 0.0f, 0.0f));
 
 		// Scale the water object
-		waterMatrix = glm::scale(waterMatrix, glm::vec3(0.45f));
-
+		firstWallMatrix = glm::scale(firstWallMatrix, glm::vec3(0.45f));
 
 		// Set the model matrix in the shader
 		bubbleShader.use();
-		bubbleShader.setMat4("model", waterMatrix);
+		bubbleShader.setMat4("model", firstWallMatrix);
 		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
 		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
 
 		// Draw the water object
-		waterModel.Draw(bubbleShader);
-		
+		firstAquariumWall.Draw(bubbleShader);
+
+
+		//SECOND AQUARIUM WALL MODEL
+		glm::mat4 secondWallMatrix = glm::mat4(1.0f);
+
+		// Translate the wall object
+		secondWallMatrix = glm::translate(secondWallMatrix, glm::vec3(-0.01f, -2.2f, 2.7f));
+		secondWallMatrix = glm::rotate(secondWallMatrix, angleWater, glm::vec3(-0.5f, 0.0f, 0.0f));
+
+		// Scale the water object
+		secondWallMatrix = glm::scale(secondWallMatrix, glm::vec3(0.45f));
+
+
+		// Set the model matrix in the shader
+		bubbleShader.use();
+		bubbleShader.setMat4("model", secondWallMatrix);
+		bubbleShader.setMat4("view", pCamera->GetViewMatrix());
+		bubbleShader.setMat4("projection", pCamera->GetProjectionMatrix());
+
+		// Draw the water object
+		firstAquariumWall.Draw(bubbleShader);
 
 		glDisable(GL_BLEND);
 

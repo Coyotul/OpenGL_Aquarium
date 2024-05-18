@@ -1,23 +1,23 @@
 ﻿  ViewOBJModel.cpp
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(450,23): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(450,23): warning C4244:         with
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(450,23): warning C4244:         [
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(450,23): warning C4244:             T=float
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(450,23): warning C4244:         ]
 E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(451,23): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
 E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(451,23): warning C4244:         with
 E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(451,23): warning C4244:         [
 E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(451,23): warning C4244:             T=float
 E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(451,23): warning C4244:         ]
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(470,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(522,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(543,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(547,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(575,28): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(597,28): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(618,28): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(639,28): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(661,28): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(782,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(783,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(452,23): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(452,23): warning C4244:         with
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(452,23): warning C4244:         [
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(452,23): warning C4244:             T=float
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(452,23): warning C4244:         ]
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(471,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(523,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(544,27): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(548,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(576,28): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(598,28): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(619,28): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(640,28): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(662,28): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(801,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+E:\laborator s3d\OpenGL_Aquarium\Aquarium\ViewOBJModel\ViewOBJModel.cpp(802,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   ViewOBJModel.vcxproj -> E:\laborator s3d\OpenGL_Aquarium\Aquarium\x64\Debug\ViewOBJModel.exe
