@@ -407,6 +407,9 @@ int main()
 	std::string fishObjFileName = (currentPath + "\\Models\\Fish\\fish.obj");
 	Model fishObjModel(fishObjFileName, false);
 
+	std::string sharkObjFileName = (currentPath + "\\Models\\Shark\\12960_Shark_v2_L1.obj");
+	Model sharkObjModel(sharkObjFileName, false);
+
 	std::string goldFishObjFileName = (currentPath + "\\Models\\BlackGoldfish\\12990_Black_Moor_Goldfish_v1_l2.obj");
 	Model goldFishObjModel(goldFishObjFileName, false);
 
@@ -501,6 +504,26 @@ int main()
 		lightingShader.setMat4("projection", pCamera->GetProjectionMatrix());
 		lightingShader.setMat4("view", pCamera->GetViewMatrix());
 		
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SHARK ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		// Calculăm unghiul curent bazat pe timp și pe viteza de rotație dorită
+		float sharkangle = glfwGetTime() * angularSpeed;
+
+		// Calculăm noile coordonate x și z ale poziției peștelui pe baza unghiului și razei
+		float sharknewX = radius * cos(sharkangle);
+		float sharknewZ = radius * sin(sharkangle);
+
+		//lightingShader.SetVec3("objectColor", 1.f, 1.0f, 1.f);
+		glm::mat4 sharkModelMatrix = glm::mat4(0.03f);
+		sharkModelMatrix = glm::scale(sharkModelMatrix, glm::vec3(0.5f));
+		sharkModelMatrix = glm::translate(sharkModelMatrix, glm::vec3(sharknewX + 250.0f, 290.0f, sharknewZ - 10.0f));
+		sharkModelMatrix = glm::rotate(sharkModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // Rotim axa y în jurul axei z
+
+		// Setăm matricea de model în shader-ul de iluminare
+		lightingShader.setMat4("model", sharkModelMatrix);
+
+		// Desenăm peștele folosind shader-ul de iluminare
+		sharkObjModel.Draw(lightingShader);
+
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FAIRYFISH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Calculăm unghiul curent bazat pe timp și pe viteza de rotație dorită
 		float fairyangle = glfwGetTime() * angularSpeed;
