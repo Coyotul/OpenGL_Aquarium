@@ -437,6 +437,9 @@ int main()
 	std::string tableObjFileName = (currentPath + "\\Models\\Table\\table.obj");
 	Model tableObjModel(tableObjFileName, false);
 
+	std::string coralObjFileName = (currentPath + "\\Models\\Coral\\20941_Brain_Coral_v1_NEW1.obj");
+	Model coralObjModel(coralObjFileName, false);
+
 	float bubbleHeight = 5.0f;
 	// for bubble 1
 	float bubble1Y = -2.0f;
@@ -694,7 +697,7 @@ int main()
 		lightingShader.setMat4("model", aquariumModelMatrix); // Folosim aceeași matrice de model pentru acvariu ca și pentru pește
 		aquariumModel.Draw(lightingShader);
 
-
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ TABLE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		glm::mat4 tableModelMatrix = glm::scale(glm::mat4(15.0), glm::vec3(0.03f));
 
 		// Translație
@@ -704,12 +707,31 @@ int main()
 		tableModelMatrix = glm::scale(tableModelMatrix, glm::vec3(0.23f));
 
 		// Rotire (setăm la 0 grade pe axa X dacă dorim să fie orizontală)
-		tableModelMatrix = glm::rotate(tableModelMatrix, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		tableModelMatrix = glm::rotate(tableModelMatrix, -glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
 		lightingShader.setMat4("model", tableModelMatrix);
 
 		// Desenăm modelul
 		tableObjModel.Draw(lightingShader);
+
+		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CORAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+		glm::mat4 coralModelMatrix = glm::scale(glm::mat4(15.0), glm::vec3(0.03f));
+
+		// Translație
+		coralModelMatrix = glm::translate(coralModelMatrix, glm::vec3(2.0f, -3.0f, 3.0f));
+
+		// Scalare (reducem dimensiunea)
+		coralModelMatrix = glm::scale(coralModelMatrix, glm::vec3(0.23f));
+
+		// Rotire (setăm la 0 grade pe axa X dacă dorim să fie orizontală)
+		coralModelMatrix = glm::rotate(coralModelMatrix, -glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+		lightingShader.setMat4("model", coralModelMatrix);
+
+		// Desenăm modelul
+		coralObjModel.Draw(lightingShader);
+
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		glEnable(GL_BLEND);
