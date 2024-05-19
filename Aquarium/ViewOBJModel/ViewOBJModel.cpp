@@ -434,6 +434,9 @@ int main()
 	Model firstSmallAquariumWall(secondAquariumWallFn, false);
 	Model secondSmallAquariumWall(secondAquariumWallFn, false);
 
+	std::string tableObjFileName = (currentPath + "\\Models\\Table\\table.obj");
+	Model tableObjModel(tableObjFileName, false);
+
 	float bubbleHeight = 5.0f;
 	// for bubble 1
 	float bubble1Y = -2.0f;
@@ -690,6 +693,23 @@ int main()
 		// Desenăm acvariul folosind aceeași matrice de model ca peștele
 		lightingShader.setMat4("model", aquariumModelMatrix); // Folosim aceeași matrice de model pentru acvariu ca și pentru pește
 		aquariumModel.Draw(lightingShader);
+
+
+		glm::mat4 tableModelMatrix = glm::scale(glm::mat4(15.0), glm::vec3(0.03f));
+
+		// Translație
+		tableModelMatrix = glm::translate(tableModelMatrix, glm::vec3(0.0f, -15.9f, 0.0f));
+
+		// Scalare (reducem dimensiunea)
+		tableModelMatrix = glm::scale(tableModelMatrix, glm::vec3(0.23f));
+
+		// Rotire (setăm la 0 grade pe axa X dacă dorim să fie orizontală)
+		tableModelMatrix = glm::rotate(tableModelMatrix, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+		lightingShader.setMat4("model", tableModelMatrix);
+
+		// Desenăm modelul
+		tableObjModel.Draw(lightingShader);
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BUBBLE LOGIC ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		glEnable(GL_BLEND);
@@ -1078,7 +1098,6 @@ int main()
 
 		// Draw the water object
 		secondSmallAquariumWall.Draw(bubbleShader);
-
 
 		glDisable(GL_BLEND);
 
